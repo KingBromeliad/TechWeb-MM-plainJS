@@ -21,9 +21,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 //static files-images
-app.use(express.static(__dirname + '/playerdist'));
+app.use(express.static(__dirname + '/player'));
 
-app.use(express.static(__dirname + '/admindist'));
+app.use(express.static(__dirname + '/admin'));
 
 app.use(express.static(__dirname + '/images'));
 
