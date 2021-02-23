@@ -1,5 +1,4 @@
 const Chat = Vue.component("Chat", {
-  name: "chat",
   template: ` <div class="fixed inset-0 overflow-hidden z-10">
     <div class="absolute inset-0 overflow-hidden">
       <transition
@@ -129,7 +128,7 @@ const Chat = Vue.component("Chat", {
   </div>`,
   components: {
     Message,
-    userMessage,
+    UserMessage,
   },
   props: {
     slideOver: Boolean,
@@ -162,10 +161,12 @@ const Chat = Vue.component("Chat", {
       this.feed.push(incomingData);
     },
   },
+  /*
   created() {
     this.$refs.input.focus();
     this.$refs.button.focus();
   },
+  */
 
   methods: {
     sendMessage: function () {

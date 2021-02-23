@@ -1,6 +1,5 @@
 const UserMessage = Vue.component("UserMessage", 
 {
-    name: "userMessage",
     template: `<div class="chat-message">
     <div class="flex items-end justify-end">
       <div
