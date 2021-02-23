@@ -11,7 +11,7 @@ let storiacorrente;
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, './images');
+    cb(null, __dirname + '/images');
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
@@ -20,8 +20,29 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+//static files-images
+app.use(express.static(__dirname + '/playerdist'));
+
+app.use(express.static(__dirname + '/admindist'));
+
+app.use(express.static(__dirname + '/images'));
+
+app.use(express.static(__dirname + '/json'));
+
+app.get('/test', (req, res) => {
+  res.send("Test 4");
+});
+
+app.get('/player', (req, res) => {
+  res.sendFile(__dirname + '/player/index.html');
+});
+
+app.get('/admin', (req, res) => {
+  res.sendFile(__dirname + '/admin/index.html');
+});
+
 //per CORS array dei domini dei quali accetta la comunicazione
-const whitelist = ['http://localhost:8081', 'http://localhost:8080'];
+const whitelist = ['http://localhost:8081', 'http://localhost:8080', 'https://site181985.tw.cs.unibo.it'];
 
 app.use(cors({ credentials: true, origin: whitelist }));
 // Tipologia di autenticazione locale
@@ -40,10 +61,7 @@ app.use(cookieSession({
 app.use(passport.initialize());
 
 app.use(passport.session());
-//static files-images
-app.use(express.static('images'));
 
-app.use(express.static('json'));
 //Middleware
 const authMiddleware = (req, res, next) => {
   if (!req.isAuthenticated()) {
@@ -61,7 +79,7 @@ passport.use(
     },
 
     (username, password, done) => {
-      let user = JSON.parse(fs.readFileSync('users.json')).users.find((user) => {
+      let user = JSON.parse(fs.readFileSync(__dirname + '/users.json')).users.find((user) => {
         return user.username === username && user.password === password
       })
 
@@ -101,7 +119,7 @@ app.get("/api/logout", function (req, res) {
 //ricavare i dati dell'utente loggato
 app.get("/api/user", authMiddleware, (req, res) => {
   //console.log("Stai cercando un utente");
-  let user = JSON.parse(fs.readFileSync('users.json')).users.find(user => {
+  let user = JSON.parse(fs.readFileSync(__dirname + '/users.json')).users.find(user => {
     //console.log(user.name);
     return user.id === req.session.passport.user;
   })
@@ -112,7 +130,7 @@ app.get("/api/user", authMiddleware, (req, res) => {
 //Registrazione di un nuovo utente
 app.post("/api/register", (req, res) => {
   //metto l'array di utenti letti da file in una variabile
-  let data = JSON.parse(fs.readFileSync('users.json'));
+  let data = JSON.parse(fs.readFileSync(__dirname + '/users.json'));
   //creo un nuovo utente con i dati forniti
   let newUser = {
     id: data.users.length + 1,
@@ -123,14 +141,14 @@ app.post("/api/register", (req, res) => {
   //aggiungo il nuovo utente all'oggetto
   data.users.push(newUser);
   //riscrivo su file
-  fs.writeFileSync("users.json", JSON.stringify(data, null, 4));
+  fs.writeFileSync(__dirname + "/users.json", JSON.stringify(data, null, 4));
   return res.send();
 });
 
 //Per inviare la storia come file JSON
 app.get("/openStory", (req, res) => {
   console.log(req.body);
-  let story = JSON.parse(fs.readFileSync(storiacorrente));
+  let story = JSON.parse(fs.readFileSync(__dirname + '/' + storiacorrente));
   res.send(story);
 });
 
@@ -139,7 +157,7 @@ app.post("/writeStory", (req, res) => {
   let data = JSON.stringify(req.body.filejson, null, 4);
   console.log(req.body.filejson.namestory);
   let nome = req.body.filejson.namestory;
-  fs.writeFileSync("./" + nome + ".json", data);;
+  fs.writeFileSync(__dirname + '/' + nome + ".json", data);
   res.send();
 });
 
@@ -153,27 +171,27 @@ app.post("/immagineMeglio", upload.single('image'), (req, res) => {
 app.post("/deleteStory", (req, res) => {
   let nome = req.body.filejson;
   console.log(nome);
-  fs.unlinkSync("./" + nome + ".json");;
+  fs.unlinkSync(__dirname + "/" + nome + ".json");;
   res.send();
 });
 
 app.post("/writeStoryList", (req, res) => {
   let data = JSON.stringify(req.body.filejson, null, 4);
   console.log(req.body);
-  fs.writeFileSync("./StoryList.json", data);;
+  fs.writeFileSync( __dirname + "/StoryList.json", data);;
   res.send();
 });
 
 app.get("/prendiStoria", (req, res) => {
   console.log("arrivato");
   let sname = req.query.NAME;
-  let storia = JSON.parse(fs.readFileSync("./" + sname + ".json"));
+  let storia = JSON.parse(fs.readFileSync(__dirname + "/" + sname + ".json"));
   res.send(storia);
 });
 
 app.get("/SendStory", (req, res) => {
   console.log(req.body);
-  let storia = JSON.parse(fs.readFileSync('StoryList.json'));
+  let storia = JSON.parse(fs.readFileSync(__dirname + '/StoryList.json'));
   res.send(storia);
 });
 
@@ -207,7 +225,7 @@ passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 passport.deserializeUser((id, done) => {
-  let user = JSON.parse(fs.readFileSync('users.json')).users.find((user) => {
+  let user = JSON.parse(fs.readFileSync(__dirname + '/users.json')).users.find((user) => {
     return user.id === id;
   })
   done(null, user);
@@ -215,8 +233,9 @@ passport.deserializeUser((id, done) => {
 
 //CHAT
 const botName = "Robottino";
-const chatServer = require("http").Server(app);
-const io = require("socket.io")(chatServer, {
+const server = require('http').createServer(app);
+
+const io = require("socket.io")(server, {
   cors: {
     origin: whitelist,
     methods: ["GET", "POST"],
@@ -351,7 +370,7 @@ io.on("connection", (chatSocket) => {
     io.emit('send_admin', {
       username: user,
       text: data
-    });
+    });  
   });
 
   //Messaggio inviato da admin
@@ -365,16 +384,13 @@ io.on("connection", (chatSocket) => {
   chatSocket.on('disconnect', () => {
     io.emit('user_disconnect', {
       username: botName,
-      text: chatSocket.id + ' ha lasciato la chat'
+      text: 'Un utente ha lasciato la chat'
     });
   });
 
 });
 
-chatServer.listen(3000, () => {
-  console.log("player http server listening on port: 3000");
+server.listen(8000, () => {
+  console.log("player http server listening on port: 8000");
 });
 
-app.listen(3500, () => {
-  console.log("listening on port 3500");
-})

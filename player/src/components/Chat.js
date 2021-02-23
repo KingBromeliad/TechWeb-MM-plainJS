@@ -1,6 +1,6 @@
-<!-- WORK IN PROGRESS... PLEASE WAIT -->
-<template>
-  <div class="fixed inset-0 overflow-hidden z-10">
+const Chat = Vue.component("Chat", {
+  name: "chat",
+  template: ` <div class="fixed inset-0 overflow-hidden z-10">
     <div class="absolute inset-0 overflow-hidden">
       <transition
         enter-active-class="ease-in-out duration-500"
@@ -126,15 +126,7 @@
         </section>
       </transition>
     </div>
-  </div>
-</template>
-
-<script>
-import Message from "./Message.vue";
-import userMessage from "./UserMessage";
-
-export default {
-  name: "chat",
+  </div>`,
   components: {
     Message,
     userMessage,
@@ -193,5 +185,4 @@ export default {
       playerName: "",
     };
   },
-};
-</script>
+});

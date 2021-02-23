@@ -1,24 +1,80 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import "tailwindcss/tailwind.css"
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-import VueQrcodeReader from "vue-qrcode-reader";
+Vue.use(VueSocketIOExt, socket);
 
-import VueSocketIOExt from 'vue-socket.io-extended'
-import { io } from 'socket.io-client'
 const socket = io("http://localhost:3000/", {
     withCredentials: true,
     extraHeaders: {
         "cors-header" : "valid"
     }
-})
+});
 
-Vue.use(VueSocketIOExt, socket)
-Vue.use(VueQrcodeReader);
-Vue.use(VueAxios, axios)
-Vue.config.productionTip = false
+/*********************************
+             ROUTER
+ *********************************/
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/startAccessible',
+    name: 'StartAccessible',
+    component: StartAccessible
+  },
+  {
+    path: '/start',
+    name: 'Start',
+    component: Start
+  },
+  {
+    path: '/pathgame',
+    name: 'PathGame',
+    component: PathGame
+  },
+  {
+    path: '/question',
+    name: 'Question',
+    component: Question
+  },
+  {
+    path: '/game',
+    name: 'Tris',
+    component: Game
+  },
+  {
+    path: '/musGame',
+    name: 'MusGame',
+    component: MusGame
+  },
+  {
+    path: '/video',
+    name: 'Video',
+    component: Video
+  },
+  {
+    path: '/imageGame',
+    name: 'ImageGame',
+    component: ImageGame
+  },
+  {
+    path: '/qrCodeGame',
+    name: 'QrCodeGame',
+    component: QrCodeGame
+  },
+  {
+    path: '/end',
+    name: 'End',
+    component: End
+  }
+]
+
+const router = new VueRouter({
+  routes, // short for `routes: routes`
+});
+
+/*********************************
+             APP
+ *********************************/
 
 new Vue({
   router,
