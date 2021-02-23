@@ -1,0 +1,158 @@
+{
+  "accessibile": true,
+  "namestory": "storiaMusica",
+  "game": [
+    {
+      "modificabile":true,
+      "src":"Creationstartaccessibile",
+      "name": "start",
+      "route": "/startAccessible",
+      "text": [
+        "C’era una volta, un mondo dove c’erano pentagrammi musicali con le rispettive note e chiavi che suonavano tutte in modo armonioso. Ma un giorno da un pentagramma, si cominciò a sentire un certo trambusto, erano le note acute di un pentagramma la cui guida(la chiave di violino detta chiave di SOL) scomparve. Le note e la chiave di un pentagramma vicino, calmarono le note del pentagramma senza chiave e si fecero dire cosa stesse succedendo, allora le note raccontarono che la loro chiave di SOL si rattristò in seguito a ripetute prese in giro da un'altra chiave musicale di un pentagramma vicino. Era la chiave di Basso! Sosteneva di essere migliore in quanto poteva far suonare facilmente le sue note per un accompagnamento musicale(melodia musicale ad esempio gli strumenti che accompagnano la voce di una canzone). La chiave di Basso sul pentagramma sta sulla quarta riga partendo dal basso che corrisponde al FA e per questo viene detta anche chiave del FA {immagine di un pentagramma con chiave del FA} ."
+      ],
+      "images": {
+        "singleCharacter": true,
+        "character": "musicStory/MusicAtmosphere.png",
+        "characters": [
+          "",
+          "",
+          ""
+        ],
+        "background": [
+          "musicStory/MusicAtmosphere.svg"
+        ]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationvideo",
+      "name": "Video",
+      "route": "/video",
+      "resourceType": true,
+      "title": [
+        "Principali note - Chiave di Violino"
+      ],
+      "source": [
+        "https://www.youtube.com/embed/2jFy9DIn-Y0"
+      ],
+      "images": {
+        "background": "musicStory/MusicBg.svg"
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationstartaccessibile",
+      "name": "startAccessible",
+      "route": "/startAccessible",
+      "text": [
+        " La chiave di violino viene detta invece chiave del SOL in quanto nel pentagramma, spostato più in alto per rappresentare le note più alte, la chiave di violino nasce dal SOL{immagine di un pentagramma con chiave di SOL}. Tornando alla storia, le note della chiave di  SOL andarono a cercare la loro chiave smarrita e la trovarono solo grazie alla scia di trambusto che la chiave di SOL aveva lasciato. Le note della chiave di SOL non sapevano che erano state seguite dalla chiave di FA insieme alle proprie note se non per una nota  della chiave di SOL che avvertì tutti quanti. Inaspettatamente, la chiave di FA si fece avanti e propose di collaborare perché durante questo trambusto, la chiave di SOL  e le sue note non si erano accorte che il maestro di musica aspettava che loro si rimettessero al loro posto e che nel frattempo il pianoforte si era fermato e così anche il loro mondo armonioso. Infine grazie alla parte di note e di pentagramma che le due chiavi di questa storia dimenticavano di avere in comune{immagine di due pentagrammi con le due chiavi dove viene mostrata la “parte di note in comune”}, la chiave di SOL e le sue note si rimisero tutti al loro posto e insieme avviarono il concerto musicale di pianoforte e così anche il loro mondo armonioso."
+      ],
+      "images": {
+        "background": [
+          "musicStory/MusicAtmosphere.svg"
+        ]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationvideo",
+      "name": "Video",
+      "route": "/video",
+      "resourceType": true,
+      "title": [
+        "Principali note - Chiave di Basso"
+      ],
+      "source": [
+        "https://www.youtube.com/embed/YpVcf-Q5AlU"
+      ],
+      "images": {
+        "background": "musicStory/MusicBg.svg"
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationquiz",
+      "name": "question",
+      "route": "/question",
+      "domande": [
+        {
+          "domanda": "Quante righe ha il pentagramma?",
+          "argomento": [
+            "tre",
+            "quattro",
+            "cinque",
+            "sei"
+          ],
+          "soluzione": 2
+        },
+        {
+          "domanda": "Come si distinguono le note sul Pentagramma?",
+          "argomento": [
+            "note sulle righe e negli spazi tra le righe",
+            "note sulle righe",
+            "note negli spazi",
+            "dipende dal pentagramma"
+          ],
+          "soluzione": 0
+        },
+        {
+          "domanda": "Con la chiave di Violino posso creare un accompagnamento musicale?",
+          "argomento": [
+            "no",
+            "si"
+          ],
+          "soluzione": 1
+        },
+        {
+          "domanda": "Perchè la chiave di Basso viene detta 'Chiave di FA' ?",
+          "argomento": [
+            "Perchè il simbolo sta sulla prima riga",
+            "Perchè il simbolo sta sulla seconda riga",
+            "Perchè il simbolo sta sulla terza riga",
+            "Perchè il simbolo sta sulla quarta riga"
+          ],
+          "soluzione": 3
+        },
+        {
+          "domanda": "Quali sono le note nelle righe della chiave di Basso?",
+          "argomento": [
+            "LA DO MI SOL",
+            "SOL LA DO MI",
+            "MI SOL LA DO",
+            "DO MI SOL LA"
+          ],
+          "soluzione": 0
+        }
+      ],
+      "images": {
+        "background": "musicStory/MusicQuiz.svg",
+        "singleQuestionImage": false,
+        "questionImage": "musicStory/MusicQuiz.png",
+        "questionImages": [
+          "",
+          "",
+          "",
+          ""
+        ]
+      }
+    },
+    {
+      "accessibile":true,
+      "modificabile":false,
+      "name": "MusGame",
+      "route": "/musGame",
+      "images": {
+        "background": "musicStory/mini.svg"
+      }
+    },
+    {
+      "modificabile":true,
+      "name": "EndScene",
+      "route": "/end",
+      "text": "Complimenti hai imparato qualcosa sulla notazione del pentagramma!",
+      "images": {
+        "background": "musicStory/LastScene.png"
+      }
+    }
+  ]
+}

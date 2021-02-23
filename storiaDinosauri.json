@@ -1,0 +1,376 @@
+{
+  "accessibile": false,
+  "namestory": "storiaDinosauri",
+  "game": [
+    {
+      "src": "Creationstart",
+      "modificabile": true,
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Ciao cucciolo d'uomo, benevenuto nel pianeta dei dinosauri!",
+        "Qui vivono felicemente più di mille dinosauri, siamo tutti amici",
+        "Ognuno viaggia dove vuole, gioca con chi vuole, mangia quel che vuole",
+        "O almeno così dovrebbe essere, è ormai una settimana che le mie felci preferite non crescono più",
+        "Sono sparite come per magia...Che mistero! Mi mancano così tanto, erano squisite",
+        "Per caso tu potresti aiutarmi a risolvere il mistero delle felci sparite?",
+        "Per caso tu potresti aiutarmi a risolvere il mistero delle felci sparite?",
+        "Bene per prima cosa ti faccio conoscere i miei amici dinosauri",
+        "Prima però dovremo oltrepassare il fiume, per me non è un problema... Ma forse per te si",
+        "Oh no, non vedi che sono ricoperto di ossa sulla schiena?",
+        "Mi sembri abbastanza agile, trova un percorso saltando sulle rocce! Dal grosso masso di una riva all'altra",
+        "Ah ma attento alcune sono instabili e potrebbero mouversi!"
+      ],
+      "option": [
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        "Si!",
+        ">>",
+        "Posso salire su di te?",
+        "Oh vero",
+        "Ce la farò!",
+        "Va bene!"
+      ],
+      "images": {
+        "singleCharacter": true,
+        "character": "dinosaurStory/Dino1.svg",
+        "characters": ["", "", ""],
+        "background": ["dinosaurStory/Asset2.svg"]
+      }
+    },
+    {
+      "modificabile":false,
+      "name": "PathGame",
+      "route": "/pathgame",
+      "images": {
+        "rock": "dinosaurStory/Rock.svg"
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationstart",
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Complimenti, Davvero agilissimo! Ecco qui i miei amici, su non essere timido",
+        "Ciao sono Doco il Diplodoco!",
+        "Sono uno dei dinosauri più alti mai esistiti",
+        "Adoro mangiare cespugli, foglie di conifere e felci",
+        "Ehilà sono Ally l'Allosauro!",
+        "Sono un predatore bipede, non tanto alto, ma con una grossa coda",
+        "Sono carnivoro, ma mangio solo gli stegosauri cattivi",
+        "Io sono Bronto, il Brontosauro",
+        "Il mio collo e coda sono lunghissimi, mangio di tutto: piante e pietre",
+        "Sono appena atterrato, mi presento Datto lo Pterodattilo",
+        "Come noterai volo, ma son piccino...",
+        "La mia lunga bocca è piena di denti che uso per catturare pesci",
+        "Eccomi mi chiamo Tricia sono un Triceratopo",
+        "Vedi i miei tre corni? Li uso per difendermi, ma so anche corrrere veloce",
+        "Sono difficile da catturare e mangio solo erbette",
+        "Raaar! Spero di non averti spaventato, il mio nome è Anno e come vedi sono un Tirannosauro",
+        "Sono il re dei carnivori, grazie ai miei occhi posizionati di fronte posso guardare avanti",
+        "Con il potente morso posso spezzare di tutto, ma non ne vado orgoglioso",
+        "Questo umano si è offerto di aiutarmi a scoprire il mistero delle felci scomparse",
+        "Non voglio accusarvi, ma per ora siete tutti sospettati... mi spiace",
+        "Bene ragazzo, vediamo cosa hai imparato! Tieni questa tavoletta roccia per prendere appunti",
+        "Rispondi a qualche domanda sui miei amici per essere sicuro di averli inquadrati bene"
+      ],
+      "option": [
+        "Certo che no!",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        "Piacere di conoscervi",
+        ">>",
+        ">>",
+        "Grazie",
+        "Va Bene!"
+      ],
+      "images": {
+        "singleCharacter": false,
+        "background": ["dinosaurStory/BgMountain.png"],
+        "characters": [
+          "dinosaurStory/Dino1.svg",
+          "dinosaurStory/Diplodoco.svg",
+          "dinosaurStory/Diplodoco.svg",
+          "dinosaurStory/Diplodoco.svg",
+          "dinosaurStory/Allosauro.svg",
+          "dinosaurStory/Allosauro.svg",
+          "dinosaurStory/Allosauro.svg",
+          "dinosaurStory/Brontosauro.svg",
+          "dinosaurStory/Brontosauro.svg",
+          "dinosaurStory/Pterodattilo.svg",
+          "dinosaurStory/Pterodattilo.svg",
+          "dinosaurStory/Pterodattilo.svg",
+          "dinosaurStory/Triceratopo.svg",
+          "dinosaurStory/Triceratopo.svg",
+          "dinosaurStory/Triceratopo.svg",
+          "dinosaurStory/Tirannosauro.svg",
+          "dinosaurStory/Tirannosauro.svg",
+          "dinosaurStory/Tirannosauro.svg",
+          "dinosaurStory/Dino1.svg",
+          "dinosaurStory/Dino1.svg",
+          "dinosaurStory/Dino1.svg",
+          "dinosaurStory/Dino1.svg"
+        ]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationquiz",
+      "name": "question",
+      "route": "/question",
+      "domande": [
+        {
+          "domanda": "Il diplodoco è...",
+          "argomento": ["molto alto", "carnivoro", "cornuto"],
+          "soluzione": 0
+        },
+        {
+          "domanda": "L'Allosauro si nutre di?",
+          "argomento": ["Sassi", "Erba", "Carne"],
+          "soluzione": 2
+        },
+        {
+          "domanda": "Il collo del brontosauro è...",
+          "argomento": ["Corto", "Lungo", "Di pietra"],
+          "soluzione": 1
+        },
+        {
+          "domanda": "I denti dello pterodattilo sono per mangiare?",
+          "argomento": ["Dinosauri", "Legno", "Pesci"],
+          "soluzione": 2
+        },
+        {
+          "domanda": "Il triceratopo ha 3?",
+          "argomento": ["Code", "Corni", "Occhi"],
+          "soluzione": 1
+        },
+        {
+          "domanda": "Il tirannosauro è un?",
+          "argomento": ["Predatore", "Pescatore", "Rettile"],
+          "soluzione": 0
+        }
+      ],
+      "images": {
+        "background": "dinosaurStory/StoneTablet.svg",
+        "singleQuestionImage": false,
+        "questionImage": "dinosaurStory/Triceratopo.svg",
+        "questionImages": [
+          "dinosaurStory/Diplodoco.svg",
+          "dinosaurStory/Allosauro.svg",
+          "dinosaurStory/Brontosauro.svg",
+          "dinosaurStory/Pterodattilo.svg",
+          "dinosaurStory/Triceratopo.svg",
+          "dinosaurStory/Tirannosauro.svg"
+        ]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationstart",
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Ben fatto! Sei davvero acuto, ora però dobbiamo investigare per davvero nella foresta",
+        "Credi di farcela? Bisogna essere molto agili per muoversi lì",
+        "Ah si? Bene bene, noi dinosauri abbiamo un'antica prova per capire le abilità di qualcuno",
+        "Ecco la prova! Trova uno sfidante nella foresta e gioca all'antico Tris, se lo batterai almeno una volta, ti darò qualcosa che ti aiuterà a risolvere il mistero...",
+        "Quando sei pronto vai pure, il primo turno sarà il tuo"
+      ],
+      "option": [
+        "Non vedo l'ora",
+        "Certo",
+        ">>",
+        "Voglio farla!",
+        "Ok! Ci sto!",
+        "Sono Pronto!"
+      ],
+      "images": {
+        "singleCharacter": true,
+        "character": "dinosaurStory/Dino1.svg",
+        "characters": ["", "", ""],
+        "background": ["dinosaurStory/Asset2.svg"]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationtris",
+      "name": "Tris",
+      "route": "/game",
+      "images": {
+        "background": "dinosaurStory/StoneTablet.svg",
+        "symbol": "dinosaurStory/Rock.png"
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationstart",
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Sapevo che te la saresti cavata alla grande! Ora potremo esplorare la foresta!",
+        "Dove vedi quelle foglie calpestate è il punto dove crescevano le mie felci succulente",
+        "Eh si sono tutte schiacciate, chissà cosa è successo...",
+        "Come? In effetti io vedo proprio poco... E sono pure smemorato!!! Mi sono dimenticato del tuo regalo!",
+        "Si tratta di una lente d'ingrandimento speciale, usala per inquadrare le impronte che trovi sparse per la foresta",
+        "Trovane il più possibile qui intorno così capiremo chi è passato!"
+      ],
+      "option": [
+        "Evviva!",
+        "Oh no",
+        "Ci sono delle impronte!",
+        "Vero!",
+        ">>",
+        "Mi metto subito al lavoro!"
+      ],
+      "images": {
+        "singleCharacter": true,
+        "character": "dinosaurStory/Dino1.svg",
+        "characters": ["", "", ""],
+        "background": ["dinosaurStory/Forest.png"]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"CreationQrGame",
+      "name": "QrScanner",
+      "route": "/qrCodeGame",
+      "images": {
+        "background": "dinosaurStory/Lens.png"
+      },
+      "option":["42","estinzione","i topi"]
+    },
+    {
+      "modificabile":true,
+      "src":"Creationstart",
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Sei stato bravissimo! Le hai trovate tutte! Ora ci resta da capire a chi appartengono",
+        "Dovrei avere inciso da qualche parte le impronte di noi dinosauri",
+        "Fammi un disegno del dinosauro che ha lasciato più impronte! Così lo incastreremo",
+        "Ecco le impronte, raffiguralo per bene... eh eh lo abbiamo nel sacco"
+      ],
+      "option": ["Eh si", ">>", ">>", "Si!"],
+      "images": {
+        "singleCharacter": true,
+        "character": "dinosaurStory/Dino1.svg",
+        "characters": ["", "", ""],
+        "background": ["dinosaurStory/Forest.png"]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationvideo",
+      "name": "Video",
+      "route": "/video",
+      "resourceType": false,
+      "title": ["Impronte Dinosauri"],
+      "source": [""],
+      "images": {
+        "background": "dinosaurStory/StoneTablet.svg",
+        "image": "dinosaurStory/Footprints.png"
+      }
+    },
+    {
+      "modificabile":true,
+      "name": "ImageUpload",
+      "route": "/imageGame",
+      "image_or_text": true,
+      "images": {
+        "background": "dinosaurStory/StoneTablet.svg"
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationstart",
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Disegno perfetto! Quello è chiaramente Anno il tirannosauro!",
+        "Non me lo aspettavo proprio da lui, ma le prove sono chiare, chiamiamolo..",
+        "Anno! Anno! Dove sei? Vieni qui!",
+        "Oh eccomi, che succede? Ti serve qualcosa?",
+        "Anno! Guarda che sappiamo che sei stato tu a mangiare le felci!",
+        "Questo ragazzo ti ha scoperto! Ma ora ci chiediamo: perche?? Tu sei carnivoro!",
+        "Ma.. ma.. Uffa.. Mi avete beccato",
+        "Ecco allora. A me non piace essere carnivoro!",
+        "Già è così, volevo provare la dieta vegetariana, ma mi vergogno",
+        "Ma io ho tanta fame e quindi per riempirmi le ho dovute mangiare tutte... Mi dispiace...",
+        "Ti perdono Anno, non c'è nulla di cui vergognarti, potevi dirmelo",
+        "Facciamo così, mi aiuterai a piantare altre felci così ce ne saranno abbastanza per tutti!",
+        "Grazie mille per avermi perdonato e capito, non me lo aspettavo proprio!",
+        "Ma figurati Anno! Facciamo pace",
+        "Siiii grazie mille anche a te cucciolo d'uomo",
+        "Grazie mille davvero! E ora... Festa!!"
+      ],
+      "option": [
+        "Già",
+        "Chissà perchè lo ha fatto",
+        ">>",
+        "Eccoti",
+        ">>",
+        ">>",
+        "Spiegaci",
+        "Cosa?",
+        ">>",
+        ">>",
+        "Già",
+        ">>",
+        ">>",
+        "Si evviva!",
+        "Di nulla Anno",
+        "Evvai!"
+      ],
+      "images": {
+        "singleCharacter": false,
+        "character": "dinosaurStory/Dino1.svg",
+        "characters": [
+          "dinosaurStory/Dino1.svg",
+          "dinosaurStory/Dino1.svg",
+          "dinosaurStory/Dino1.svg",
+          "dinosaurStory/Tirannosauro.svg",
+          "dinosaurStory/Dino1.svg",
+          "dinosaurStory/Dino1.svg",
+          "dinosaurStory/TirannosauroSad.svg",
+          "dinosaurStory/TirannosauroSad.svg",
+          "dinosaurStory/TirannosauroSad.svg",
+          "dinosaurStory/TirannosauroSad.svg",
+          "dinosaurStory/Dino1.svg",
+          "dinosaurStory/Dino1.svg",
+          "dinosaurStory/Tirannosauro.svg",
+          "dinosaurStory/Dino1.svg",
+          "dinosaurStory/Tirannosauro.svg",
+          "dinosaurStory/Dino1.svg"
+        ],
+        "background": ["dinosaurStory/Forest.png"]
+      }
+    },
+    {
+      "name": "EndScene",
+      "route": "/end",
+      "text": "Complimenti cucciolo d'Uomo! Hai risolto il mistero!",
+      "images": {
+        "background": "dinosaurStory/FinalScene.png"
+      }
+    }
+  ]
+}

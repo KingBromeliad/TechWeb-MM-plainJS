@@ -1,0 +1,139 @@
+{
+  "accessibile": true,
+  "namestory": "Default",
+  "game": [
+    {
+      "src": "Creationstart",
+      "modificabile": true,
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Ciao cucciolo d'uomo, benevenuto nel pianeta dei dinosauri!",
+        "Qui vivono felicemente più di mille dinosauri, siamo tutti amici"
+      ],
+      "option": [
+        "Oh vero",
+        "Ce la farò!"
+      ],
+      "images": {
+        "singleCharacter": true,
+        "character": "dinosaurStory/Dino1.svg",
+        "characters": ["", "", ""],
+        "background": ["dinosaurStory/Asset2.svg"]
+      }
+    },
+    {
+      "modificabile":false,
+      "name": "PathGame",
+      "route": "/pathgame",
+      "images": {
+        "backgroundPath": "dinosaurStory/backgroundPath.png",
+        "rock": "dinosaurStory/Rock.svg"
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationquiz",
+      "name": "question",
+      "route": "/question",
+      "domande": [
+        {
+          "domanda": "Il diplodoco è...",
+          "argomento": ["molto alto", "carnivoro", "cornuto"],
+          "soluzione": 0
+        },
+        {
+          "domanda": "L'Allosauro si nutre di?",
+          "argomento": ["Sassi", "Erba", "Carne"],
+          "soluzione": 2
+        },
+        {
+          "domanda": "Il collo del brontosauro è...",
+          "argomento": ["Corto", "Lungo", "Di pietra"],
+          "soluzione": 1
+        },
+        {
+          "domanda": "I denti dello pterodattilo sono per mangiare?",
+          "argomento": ["Dinosauri", "Legno", "Pesci"],
+          "soluzione": 2
+        },
+        {
+          "domanda": "Il triceratopo ha 3?",
+          "argomento": ["Code", "Corni", "Occhi"],
+          "soluzione": 1
+        },
+        {
+          "domanda": "Il tirannosauro è un?",
+          "argomento": ["Predatore", "Pescatore", "Rettile"],
+          "soluzione": 0
+        }
+      ],
+      "images": {
+        "background": "dinosaurStory/StoneTablet.svg",
+        "singleQuestionImage": false,
+        "questionImage": "dinosaurStory/Triceratopo.svg",
+        "questionImages": [
+          "dinosaurStory/Diplodoco.png",
+          "dinosaurStory/Allosauro.svg",
+          "dinosaurStory/Brontosauro.svg",
+          "dinosaurStory/Pterodattilo.svg",
+          "dinosaurStory/Triceratopo.svg",
+          "dinosaurStory/Tirannosauro.svg"
+        ]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationtris",
+      "name": "Tris",
+      "route": "/game",
+      "images": {
+        "background": "dinosaurStory/StoneTablet.svg",
+        "symbol": "dinosaurStory/Rock.png"
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"CreationQrGame",
+      "name": "QrScanner",
+      "route": "/qrCodeGame",
+      "images": {
+        "background": "dinosaurStory/Lens.png"
+      },
+      "option" :["Prova"]
+    },
+    {
+      "modificabile":true,
+      "src":"Creationvideo",
+      "name": "Video",
+      "route": "/video",
+      "resourceType": false,
+      "title": ["Impronte Dinosauri"],
+      "source": [""],
+      "images": {
+        "background": "dinosaurStory/StoneTablet.svg",
+        "image": "dinosaurStory/Footprints.png"
+      }
+    },
+    {
+      "modificabile":true,
+      "name": "ImageUpload",
+      "route": "/imageGame",
+      "src":"Creationimage",
+      "image_or_text": true,
+      "images": {
+        "background": "dinosaurStory/StoneTablet.svg"
+      }
+    },
+    {
+      "src":"creationend",
+      "modificabile":true,
+      "name": "EndScene",
+      "route": "/end",
+      "text": "Complimenti cucciolo d'Uomo! Hai risolto il mistero!",
+      "images": {
+        "background": "dinosaurStory/FinalScene.png"
+      }
+    }
+  ]
+}

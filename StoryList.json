@@ -1,0 +1,17 @@
+[
+    {
+        "accessibile": true,
+        "name": "storiaMusica",
+        "edizione": "ciaolo"
+    },
+    {
+        "accessibile": false,
+        "name": "StoriaSpazio",
+        "edizione": "ciaolo"
+    },
+    {
+        "accessibile": false,
+        "name": "StoriaDinosauri",
+        "edizione": "ciaolo"
+    }
+]

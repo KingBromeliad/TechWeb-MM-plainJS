@@ -1,0 +1,339 @@
+{
+  "accessibile": false,
+  "namestory": "storiaSpazio",
+  "game": [
+    {
+      "modificabile":true,
+      "src":"Creationstart",
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Buongiorno ragazzi e benvenuti al centro spaziale, oggi è un grande giorno! ",
+        "Stiamo per assistere all'atterraggio del rover Inspiration su Marte!",
+        "Il rover raccoglierà gli ultimi dati necessari che ci permetteranno di eplorare il Pianeta Rosso",
+        "Eccovi in omaggio un Mars-ablet, dal quale potrete osservare il tutto e imparare fatti interessanti...",
+        "A proposito... Sapete perchè Marte è rosso? Provate a scoprirlo con il nuovo Mars-ablet!"
+      ],
+      "option": [">>", ">>", ">>", ">>", "Ok!"],
+      "images": {
+        "singleCharacter": true,
+        "character": "spaceStory/Astronaut.png",
+        "characters": ["", "", ""],
+        "background": ["spaceStory/BgLab.svg"]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationvideo",
+      "name": "Video",
+      "route": "/video",
+      "resourceType": true,
+      "title": ["Is Mars Really Red?"],
+      "source": ["https://mars.nasa.gov/embed/20029/"],
+      "images": {
+        "background": "spaceStory/Tablet.png"
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationstart",
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Molto bene spero l'abbiate trovato interessante, l'atterraggio avverrà in t minus 55...",
+        "Che è questo trambusto? Che succede?",
+        "Terribili notizie!! Abbiamo perso segnale con il modulo del rover Inspiration!",
+        "Come faremo? Qualcuno dovrebbe partire immediatamente e andare a controllare il satellite sul quale rimbalza il segnale",
+        "Ma qui alla base sono rimasto solo io e questi ragazzi! Non posso farcela da solo...",
+        "Mi permetta austronauta Jonas! Sono sicuro che tra questi ragazzi ci sia qualcuno con le capacità necessarie",
+        "Sarebbe impossibile, questi ragazzi non dispongono delle conoscenze necessarie!",
+        "E allora terremo una sfida! Chi realizzerà il punteggio maggiore verrà selezionato...",
+        "Che ne dite? Siete pronti a diventare astronauti ed Eroi?!",
+        "Ehm, molto bene allora, il Mars-ablet vi istruirà riguardo tutto quello che dovete sapere"
+      ],
+      "option": [
+        ">>",
+        "??",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        ">>",
+        "Si! Ci sto!",
+        "Pronti!"
+      ],
+      "images": {
+        "singleCharacter": false,
+        "character": "spaceStory/Astronaut.png",
+        "characters": [
+          "spaceStory/Astronaut.png",
+          "spaceStory/Astronaut.png",
+          "spaceStory/Scientist.svg",
+          "spaceStory/Scientist.svg",
+          "spaceStory/Astronaut.png",
+          "spaceStory/Manager.svg",
+          "spaceStory/Scientist.svg",
+          "spaceStory/Manager.svg",
+          "spaceStory/Manager.svg",
+          "spaceStory/Scientist.svg"
+        ],
+        "background": ["spaceStory/BgLab.svg"]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationvideo",
+      "name": "Video",
+      "route": "/video",
+      "resourceType": true,
+      "title": [
+        "How Do You Get to Mars?",
+        "How Hard Is It to Land a Rover on Mars?",
+        "Phoning Home: Communicating from Mars"
+      ],
+      "source": [
+        "https://mars.nasa.gov/embed/20032/",
+        "https://mars.nasa.gov/embed/20048/",
+        "https://mars.nasa.gov/embed/20055/"
+      ],
+      "images": {
+        "background": "spaceStory/Tablet.png"
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationstart",
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Bene ora che sapete tutto è il momento del test attitudinale! Chi vincerà?"
+      ],
+      "option": [">>"],
+      "images": {
+        "singleCharacter": true,
+        "character": "spaceStory/Manager.svg",
+        "characters": ["", "", ""],
+        "background": ["spaceStory/BgLab.svg"]
+      }
+    },
+    {
+      "name": "question",
+      "route": "/question",
+      "domande": [
+        {
+          "domanda": "Perchè Marte appare rosso?",
+          "argomento": [
+            "Ossido di ferro nell'atmosfera",
+            "Colore della sabbia",
+            "Riflessi spaziali"
+          ],
+          "soluzione": 0
+        },
+        {
+          "domanda": "Ogni quanto conviene partire per Marte?",
+          "argomento": [
+            "Ogni settimana",
+            "Di notte",
+            "Ogni due anni",
+            "Ogni 7 mesi"
+          ],
+          "soluzione": 2
+        },
+        {
+          "domanda": "Quanto dura la discesa verso la superficie?",
+          "argomento": ["7 secondi", "7 minuti", "1 secondo", "1 ora"],
+          "soluzione": 1
+        },
+        {
+          "domanda": "Per quanto tempo possono comunicare il rover e il suo orbiter?",
+          "argomento": ["Infinito", "Pochi minuti", "Una settimana"],
+          "soluzione": 1
+        },
+        {
+          "domanda": "Possiamo apprendere immediatamente l'esito dell'atterraggio?",
+          "argomento": ["Si", "No", "Dipende"],
+          "soluzione": 1
+        }
+      ],
+      "images": {
+        "background": "spaceStory/Tablet.png",
+        "singleQuestionImage": false,
+        "questionImage": "spaceStory/Mars.png",
+        "questionImages": [
+          "spaceStory/Mars.png",
+          "spaceStory/RocketSm.png",
+          "spaceStory/Rover.svg",
+          "spaceStory/Satellite.svg",
+          "spaceStory/Rover.svg"
+        ]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationstart",
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Eccellente sapevo che saresti riuscito a superare il test con un ottimo punteggio!",
+        "Vieni con me ragazzo prepariamoci al lancio!",
+        "In tre! Due! Uno! Lancio!",
+        "Qui base, riuscite ad identificare il problema?",
+        "Purtroppo a causa dei danni al satellite non riceviamo il vostro feed video",
+        "Oppure potrebbe essere un problema dovuto alle lune di Marte, dovresti poter aggirare il loro disturbo",
+        "Accidenti il segnale! Non riesco ad inviarti le informazioni necessarie; se solo ci fosse un modo per farti sapere tutto quel che serve",
+        "Aspetta! Nella vostra capsula dovrebbe esserci un libro intitolato <<The Sun shines Bright>> lì troverai le informazioni sulle lune",
+        "Sembra che il vostro canale di upload funzioni, scrivimi quel che hai capito, così ti darò la conferma a voce"
+      ],
+      "option": [
+        "Grazie",
+        "Evvai!",
+        ">>",
+        "Non vedete?",
+        "Capisco",
+        "Ma come?",
+        ">>",
+        "Lo cerco subito",
+        "Lo farò"
+      ],
+      "images": {
+        "singleCharacter": false,
+        "character": "spaceStory/Manager.svg",
+        "characters": [
+          "spaceStory/Manager.svg",
+          "spaceStory/Astronaut.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png"
+        ],
+        "background": [
+          "spaceStory/BgLab.svg",
+          "spaceStory/BgLab.svg",
+          "spaceStory/Launch.png",
+          "spaceStory/DamagedSatellite.png",
+          "spaceStory/DamagedSatellite.png",
+          "spaceStory/DamagedSatellite.png",
+          "spaceStory/DamagedSatellite.png",
+          "spaceStory/DamagedSatellite.png",
+          "spaceStory/DamagedSatellite.png"
+        ]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationimage",
+      "name": "ImageUpload",
+      "route": "/imageGame",
+      "image_or_text": false,
+      "images": {
+        "background": "spaceStory/Tablet.png"
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationstart",
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Ottimo ora regola l'antenna perchè rimbalzi il segnale su Phobos!",
+        "Molto bene, ma non riceviamo ancora il feed video",
+        "Almeno però ora la banda è sufficiente a inviare immagini",
+        "La brutta notizia è che non avete videocamere, solo lo scanner del Mars-ablet",
+        "Ancora una volta dovremo affidarci alle risorse analogiche, mi sa che ti tocca",
+        "Ragazzo riusciresti ad disegnare il danno al satellite osservando dalle ottiche della navicella?",
+        "Ottimo! Poi utilizza lo scanner del Mars-ablet per inviare il disegno, cerca di essere il più accurato possibile!",
+        "Inizia pure!"
+      ],
+      "option": [
+        "Fatto",
+        "Mannaggia",
+        "Almeno",
+        "Ma nooo",
+        "Capisco",
+        "Credo di si",
+        ">>",
+        "Subito"
+      ],
+      "images": {
+        "singleCharacter": false,
+        "character": "spaceStory/Manager.svg",
+        "characters": [
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png"
+        ],
+        "background": [
+          "spaceStory/DamagedSatellite.png",
+          "spaceStory/DamagedSatellite.png",
+          "spaceStory/DamagedSatellite.png",
+          "spaceStory/DamagedSatellite.png",
+          "spaceStory/DamagedSatellite.png",
+          "spaceStory/DamagedSatellite.png",
+          "spaceStory/DamagedSatellite.png",
+          "spaceStory/DamagedSatellite.png"
+        ]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationimage",
+      "name": "ImageUpload",
+      "route": "/imageGame",
+      "image_or_text": true,
+      "images": {
+        "background": "spaceStory/Tablet.png"
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationstart",
+      "name": "start",
+      "route": "/start",
+      "text": [
+        "Magnifico lavoro!",
+        "Recuperate i pannelli rovinati, non vogliamo lasciare spazzatura spaziale",
+        "Ah.. Buon ritorno, vi aspettiamo!",
+        "COMPLIMENTI RAGAZZO! SEI UN EROE SPAZIALE!!",
+        "E ora finalmente possiamo ricevere le immagini da Inspiration!!"
+      ],
+      "option": ["Grazie", ">>", ">>", ">>", ">>"],
+      "images": {
+        "singleCharacter": false,
+        "character": "spaceStory/Manager.svg",
+        "characters": [
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/Empty.png",
+          "spaceStory/TwoChar.png",
+          "spaceStory/TwoChar.png"
+        ],
+        "background": [
+          "spaceStory/SatelliteRepair.png",
+          "spaceStory/SatelliteRepair.png",
+          "spaceStory/SatelliteRepair.png",
+          "spaceStory/BgLab.svg",
+          "spaceStory/BgLab.svg"
+        ]
+      }
+    },
+    {
+      "modificabile":true,
+      "src":"Creationend",
+      "name": "EndScene",
+      "route": "/end",
+      "text": "Hai salvato la missione Inspiration!",
+      "images": {
+        "background": "spaceStory/Bg-Mars.svg"
+      }
+    }
+  ]
+}
