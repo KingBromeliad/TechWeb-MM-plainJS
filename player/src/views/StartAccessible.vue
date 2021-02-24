@@ -70,7 +70,7 @@ export default {
     //method modified
     ContinueToNext() {
       this.$refs.button.focus();
-      this.$emit("gameCompleted");
+      this.$emit("game-completed");
     },
     updateScore() {
       //punteggio aggiornato via via passandoli un valore

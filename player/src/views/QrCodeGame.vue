@@ -91,7 +91,7 @@ export default {
       });
     },
     ContinueToNext() {
-      this.$emit("gameCompleted");
+      this.$emit("game-completed");
     },
   },
   sockets: {

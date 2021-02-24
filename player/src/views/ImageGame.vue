@@ -175,7 +175,7 @@ export default {
       this.$socket.client.emit("gioco_testo", data);
     },
     ContinueToNext() {
-      this.$emit("gameCompleted");
+      this.$emit("game-completed");
     },
   },
   sockets: {

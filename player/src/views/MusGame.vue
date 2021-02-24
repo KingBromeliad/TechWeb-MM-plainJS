@@ -180,7 +180,7 @@ export default {
     },
 
     continueToNext() {
-      this.$emit("gameCompleted");
+      this.$emit("game-completed");
     },
   },
 };

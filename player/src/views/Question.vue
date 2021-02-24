@@ -146,7 +146,7 @@ export default {
   },
   methods: {
     ContinueToNext() {
-      this.$emit("gameCompleted");
+      this.$emit("game-completed");
     },
     updateScore() {
       //punteggio aggiornato via via passandoli un valore

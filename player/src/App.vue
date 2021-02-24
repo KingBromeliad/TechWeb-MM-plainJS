@@ -44,7 +44,7 @@
     </nav>
     <router-view
       :data="this.game[this.progress]"
-      @gameCompleted="nextView()"
+      @game-completed="nextView()"
       :time="this.formattedElapsedTime"
       @updatePoints="updateScore"
       :no_game="this.no_game"
