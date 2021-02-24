@@ -28,8 +28,8 @@ const Rock = Vue.component("Rock", {
   computed: {
     image: function () {
       if (this.id == 1 || this.id == 16)
-        return process.env.VUE_APP_BASE_URL + "dinosaurStory/RockArrow.svg";
-      else return process.env.VUE_APP_BASE_URL + "dinosaurStory/Rock.png";
+        return 'http://localhost:8000/' + "dinosaurStory/RockArrow.svg";
+      else return 'http://localhost:8000/' + "dinosaurStory/Rock.png";
     },
     highlight: function () {
       if (this.high_light) return "bg-green-300";

@@ -58,7 +58,7 @@ const Home = Vue.component("Home",
     },
     methods: {
       ContinueToNext() {
-        this.$emit("gameCompleted");
+        this.$emit("game-completed");
       },
     },
   }

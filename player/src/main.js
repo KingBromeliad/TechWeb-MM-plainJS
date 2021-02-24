@@ -1,5 +1,6 @@
 import Chat from './components/Chat.js'
 import Home from './views/Home.js'
+import Start from './views/Start.js'
 
 const socket = io("http://localhost:8000", {
     withCredentials: true,
@@ -18,6 +19,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/start',
+    name: 'Start',
+    component: Start
   }
 ]
 

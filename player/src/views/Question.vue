@@ -115,10 +115,10 @@ export default {
   computed: {
     questionImage: function () {
       if (this.data.images.singleQuestionImage)
-        return process.env.VUE_APP_BASE_URL + this.data.images.questionImage;
+        return 'http://localhost:8000/' + this.data.images.questionImage;
       else
         return (
-          process.env.VUE_APP_BASE_URL +
+          'http://localhost:8000/' +
           this.data.images.questionImages[this.currentQuestion]
         );
     },
@@ -128,7 +128,7 @@ export default {
     background: function () {
       return (
         "url(" +
-        process.env.VUE_APP_BASE_URL +
+        'http://localhost:8000/' +
         this.data.images.background +
         ")"
       );

@@ -63,10 +63,10 @@ export default {
     },
     source: function() {
       if (this.data.resourceType) return this.data.source[this.line];
-      else return process.env.VUE_APP_BASE_URL + this.data.images.image;
+      else return 'http://localhost:8000/' + this.data.images.image;
     },
     background: function() {
-      return "url(" + process.env.VUE_APP_BASE_URL + this.data.images.background + ")";
+      return "url(" + 'http://localhost:8000/' + this.data.images.background + ")";
     },
     resourceType: function() {
       return this.data.resourceType;

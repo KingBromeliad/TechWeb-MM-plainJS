@@ -3,28 +3,28 @@
     class="bg-fixed bg-center bg-cover bg-no-repeat min-h-screen m-0 p-0"
     v-bind:style="{ 'background-image': background }"
   >
-    <div class="grid place-content-center h-screen">
+    <div class="grid grid-cols-2 gap-4 place-content-center h-screen">
       <!-- WELCOME INSIDE THE GRID LAYOUT-->
+      <div class="flex flex-wrap content-end justify-center pb-2 h-screen">
+        <img :src="character" alt="character" style="height: 70vh" />
+      </div>
       <div class="flex content-center justify-center flex-wrap space-y-8">
-        <div class="rounded-md text-center md:mr-4">
-          <p class="text-black font-extrabold md:text-xl md:m-10 sm:m-2" ref="text">
+        <div class="bg-white rounded-md text-center lg:mr-4 mr-2">
+          <p class="text-black font-extrabold lg:text-4xl text-2xl lg:m-10 m-2">
             {{ text }}
           </p>
         </div>
 
         <button
-          ref="button"
-          @click="ContinueToNext()"
-          class="hover:bg-gray-700 focus:outline-none rounded-lg font-extrabold text-center text-black md:text-6xl sm:text-2xl md:ml-40 sm:ml-10 p-3"
-          aria-label="Prosegui con la storia"
+          @click="Continue()"
+          class="bg-black hover:bg-gray-700 focus:outline-none rounded-lg font-extrabold text-center text-white lg:text-4xl text-2xl lg:ml-40 ml-10 lg:p-4 p-2"
         >
-          Continua ..
+          {{ option }}
         </button>
       </div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   props: {
@@ -33,30 +33,33 @@ export default {
   },
   computed: {
     text: function() {
-      console.log(this.data);
       if (this.data != null) {
-        return this.data.text[0];
+        return this.data.text[this.line];
       } else return "loading...";
     },
-
+    option: function() {
+      if (this.data != null) {
+        return this.data.option[this.line];
+      } else return "...";
+    },
     background: function() {
       if (this.data.images.background.length == 1)
         return (
-          "url(" + process.env.VUE_APP_BASE_URL + this.data.images.background[0] + ")"
+          "url("+ 'http://localhost:8000/' + this.data.images.background[0] + ")"
         );
       else
-        return (
-          "url(" + process.env.VUE_APP_BASE_URL +
+        return ( "url(" +
+          'http://localhost:8000/' +
           this.data.images.background[this.line] +
           ")"
         );
     },
     character: function() {
       if (this.data.images.singleCharacter) {
-        return process.env.VUE_APP_BASE_URL + this.data.images.character;
+        return 'http://localhost:8000/' + this.data.images.character;
       } else
         return (
-          process.env.VUE_APP_BASE_URL + this.data.images.characters[this.line]
+          'http://localhost:8000/' + this.data.images.characters[this.line]
         );
     },
   },
@@ -67,9 +70,15 @@ export default {
     };
   },
   methods: {
-    //method modified
+    Continue() {
+      if (this.line < this.data.text.length - 1) {
+        this.line++;
+      } else if (this.line == this.data.text.length - 1) {
+        this.ContinueToNext();
+      }
+      this.updateScore();
+    },
     ContinueToNext() {
-      this.$refs.button.focus();
       this.$emit("gameCompleted");
     },
     updateScore() {
@@ -95,5 +104,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
