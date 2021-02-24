@@ -132,13 +132,13 @@ export default {
   },
   computed: {
     address: function(){
-      return process.env.VUE_APP_BASE_URL + "immagineRicevuta"
+      return 'http://localhost:8000/' + "immagineRicevuta"
     },
     imageGame: function() {
       return this.data.image_or_text; //true for image, false for text
     },
     background: function() {
-      return "url(" + process.env.VUE_APP_BASE_URL + this.data.images.background + ")";
+      return "url(" + 'http://localhost:8000/' + this.data.images.background + ")";
     },
   },
   data: function () {
@@ -175,7 +175,7 @@ export default {
       this.$socket.client.emit("gioco_testo", data);
     },
     ContinueToNext() {
-      this.$emit("gameCompleted");
+      this.$emit("game-completed");
     },
   },
   sockets: {
@@ -195,7 +195,7 @@ export default {
       };
       this.esitoValutazione = true;
       this.$socket.client.emit("update_score", gioco);
-      this.$emit("updatePoints", this.punti);
+      this.$emit("update-points", this.punti);
     },
     text_eval(data) {
       this.punti = parseInt(data.punti);
@@ -210,7 +210,7 @@ export default {
       };
       this.esitoValutazione = true;
       this.$socket.client.emit("update_score", gioco);
-      this.$emit("updatePoints", this.punti);
+      this.$emit("update-points", this.punti);
     },
   },
   mounted: function () {

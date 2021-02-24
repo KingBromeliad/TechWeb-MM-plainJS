@@ -1,5 +1,7 @@
+import Message from './Message.js'
+import UserMessage from './UserMessage.js'
+
 const Chat = Vue.component("Chat", {
-  name: "chat",
   template: ` <div class="fixed inset-0 overflow-hidden z-10">
     <div class="absolute inset-0 overflow-hidden">
       <transition
@@ -11,7 +13,7 @@ const Chat = Vue.component("Chat", {
         leave-to-class="opacity-0"
       >
         <div
-          v-show="slideOver"
+          v-show="slide"
           class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
           aria-hidden="true"
         ></div>
@@ -26,9 +28,9 @@ const Chat = Vue.component("Chat", {
         leave-to-class="translate-x-full"
       >
         <section
-          v-show="slideOver"
+          v-show="slide"
           class="absolute inset-y-0 right-0 pl-10 max-w-full flex"
-          aria-labelledby="slide-over-heading"
+          aria-labelledby="slide-heading"
         >
           <div class="relative w-screen max-w-md">
             <div
@@ -129,10 +131,10 @@ const Chat = Vue.component("Chat", {
   </div>`,
   components: {
     Message,
-    userMessage,
+    UserMessage,
   },
   props: {
-    slideOver: Boolean,
+    slide: Boolean,
   },
   sockets: {
     connect() {
@@ -162,10 +164,12 @@ const Chat = Vue.component("Chat", {
       this.feed.push(incomingData);
     },
   },
+  /*
   created() {
     this.$refs.input.focus();
     this.$refs.button.focus();
   },
+  */
 
   methods: {
     sendMessage: function () {
@@ -186,3 +190,4 @@ const Chat = Vue.component("Chat", {
     };
   },
 });
+export default Chat

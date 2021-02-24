@@ -1,5 +1,6 @@
-<template>
-  <body class="bg-gray-900 text-white min-h-screen">
+const Home = Vue.component("Home", 
+{
+    template: ` <div class="bg-gray-900 text-white min-h-screen">
     <div
       v-show="no_game"
       class="grid place-content-center h-screen text-center"
@@ -51,19 +52,15 @@
         attendi l'attivazione delle storie da parte del creatore e ricarica la pagina
       </p>
     </div>
-  </body>
-</template>
-
-<script>
-export default {
-  name: "Home",
-  props: {
-    no_game: Boolean,
-  },
-  methods: {
-    ContinueToNext() {
-      this.$emit("game-completed");
+  </div>`,
+    props: {
+      no_game: Boolean,
     },
-  },
-};
-</script>
+    methods: {
+      ContinueToNext() {
+        this.$emit("game-completed");
+      },
+    },
+  }
+)
+export default Home

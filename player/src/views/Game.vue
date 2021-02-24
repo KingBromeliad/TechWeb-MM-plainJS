@@ -101,10 +101,10 @@ export default {
 
   computed: {
     background: function() {
-      return "url(" + process.env.VUE_APP_BASE_URL + this.data.images.background + ")";
+      return "url(" + 'http://localhost:8000/' + this.data.images.background + ")";
     },
     symbol: function() {
-      return process.env.VUE_APP_BASE_URL + this.data.images.symbol;
+      return 'http://localhost:8000/' + this.data.images.symbol;
     },
   },
 
@@ -122,7 +122,7 @@ export default {
 
   methods: {
     ContinueToNext() {
-      this.$emit("gameCompleted");
+      this.$emit("game-completed");
     },
 
     updateScore() {
@@ -139,7 +139,7 @@ export default {
         ],
       };
       this.$socket.client.emit("update_score", data);
-      this.$emit('updatePoints', this.punti);
+      this.$emit('update-points', this.punti);
     },
 
     hasWinner() {

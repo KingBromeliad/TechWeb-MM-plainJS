@@ -1,5 +1,5 @@
 <template>
-  <body
+  <div
     class="bg-fixed bg-cover bg-center bg-no-repeat min-h-screen"
     v-bind:style="{ 'background-image': background }"
   >
@@ -103,7 +103,7 @@
         </div>
       </div>
     </section>
-  </body>
+  </div>
 </template>
 <script>
 export default {
@@ -115,10 +115,10 @@ export default {
   computed: {
     questionImage: function () {
       if (this.data.images.singleQuestionImage)
-        return process.env.VUE_APP_BASE_URL + this.data.images.questionImage;
+        return 'http://localhost:8000/' + this.data.images.questionImage;
       else
         return (
-          process.env.VUE_APP_BASE_URL +
+          'http://localhost:8000/' +
           this.data.images.questionImages[this.currentQuestion]
         );
     },
@@ -128,7 +128,7 @@ export default {
     background: function () {
       return (
         "url(" +
-        process.env.VUE_APP_BASE_URL +
+        'http://localhost:8000/' +
         this.data.images.background +
         ")"
       );
@@ -146,7 +146,7 @@ export default {
   },
   methods: {
     ContinueToNext() {
-      this.$emit("gameCompleted");
+      this.$emit("game-completed");
     },
     updateScore() {
       //punteggio aggiornato via via passandoli un valore
@@ -162,7 +162,7 @@ export default {
         ],
       };
       this.$socket.client.emit("update_score", data);
-      this.$emit("updatePoints", this.punti);
+      this.$emit("update-points", this.punti);
     },
     nextQuestion() {
       if (this.answer == this.domande[this.currentQuestion].soluzione)

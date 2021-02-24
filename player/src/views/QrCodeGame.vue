@@ -52,7 +52,7 @@ export default {
     background: function () {
       return (
         "url(" +
-        process.env.VUE_APP_BASE_URL +
+        'http://localhost:8000/' +
         this.data.images.background +
         ")"
       );
@@ -74,7 +74,7 @@ export default {
           this.numberOfStrings--;
           this.points += 50;
           if (this.numberOfStrings == 0) {
-            this.$emit("updatePoints", this.points);
+            this.$emit("update-points", this.points);
             this.$socket.client.emit("update_score", {
               playerId: this.playerId,
               nome: this.playerId,
@@ -91,7 +91,7 @@ export default {
       });
     },
     ContinueToNext() {
-      this.$emit("gameCompleted");
+      this.$emit("game-completed");
     },
   },
   sockets: {

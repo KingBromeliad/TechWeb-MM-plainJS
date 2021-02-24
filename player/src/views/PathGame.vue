@@ -82,13 +82,13 @@ export default {
       } else return "loading...";
     },
     shoreL: function(){
-      return process.env.VUE_APP_BASE_URL +"dinosaurStory/ShoreL.png"
+      return 'http://localhost:8000/' +"dinosaurStory/ShoreL.png"
     },
     shoreR: function(){
-      return process.env.VUE_APP_BASE_URL +"dinosaurStory/ShoreR.png"
+      return 'http://localhost:8000/' +"dinosaurStory/ShoreR.png"
     },
     rock: function() {
-      return process.env.VUE_APP_BASE_URL + this.data.images.rock;
+      return 'http://localhost:8000/' + this.data.images.rock;
     },
   },
   data: function() {
@@ -153,7 +153,7 @@ export default {
       this.updateScore();
     },
     ContinueToNext() {
-      this.$emit("gameCompleted");
+      this.$emit("game-completed");
     },
     updateScore() {
       //punteggio aggiornato via via passandoli un valore
@@ -169,7 +169,7 @@ export default {
         ],
       };
       this.$socket.client.emit("update_score", data);
-      this.$emit('updatePoints', this.punti);
+      this.$emit('update-points', this.punti);
     },
   },
   sockets: {

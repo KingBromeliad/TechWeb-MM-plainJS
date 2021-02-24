@@ -42,7 +42,7 @@ app.get('/admin', (req, res) => {
 });
 
 //per CORS array dei domini dei quali accetta la comunicazione
-const whitelist = ['http://localhost:8081', 'http://localhost:8080', 'https://site181985.tw.cs.unibo.it'];
+const whitelist = ['http://localhost:8081', 'http://localhost:8080','http://localhost:8000', 'https://site181985.tw.cs.unibo.it'];
 
 app.use(cors({ credentials: true, origin: whitelist }));
 // Tipologia di autenticazione locale
@@ -145,10 +145,16 @@ app.post("/api/register", (req, res) => {
   return res.send();
 });
 
-//Per inviare la storia come file JSON
+//Per inviare la storia come file JSON 
+/*
 app.get("/openStory", (req, res) => {
   console.log(req.body);
   let story = JSON.parse(fs.readFileSync(__dirname + '/' + storiacorrente));
+  res.send(story);
+});
+*/
+app.get("/openStory", (req, res) => {
+  let story = JSON.parse(fs.readFileSync(__dirname + '/' + 'storiaDinosauri.json'));
   res.send(story);
 });
 

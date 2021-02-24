@@ -63,10 +63,10 @@ export default {
     },
     source: function() {
       if (this.data.resourceType) return this.data.source[this.line];
-      else return process.env.VUE_APP_BASE_URL + this.data.images.image;
+      else return 'http://localhost:8000/' + this.data.images.image;
     },
     background: function() {
-      return "url(" + process.env.VUE_APP_BASE_URL + this.data.images.background + ")";
+      return "url(" + 'http://localhost:8000/' + this.data.images.background + ")";
     },
     resourceType: function() {
       return this.data.resourceType;
@@ -89,7 +89,7 @@ export default {
       }
     },
     ContinueToNext() {
-      this.$emit("gameCompleted");
+      this.$emit("game-completed");
     },
     updateScore() {
       //punteggio aggiornato via via passandoli un valore
@@ -105,7 +105,7 @@ export default {
         ],
       };
       this.$socket.client.emit("update_score", data);
-      this.$emit('updatePoints', 1);
+      this.$emit('update-points', 1);
       //console.log(this.score);
     },
     get_player_Id(data) {
