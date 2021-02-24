@@ -26,3 +26,4 @@ const UserMessage = Vue.component("UserMessage",
       }
   }
 )
+export default UserMessage

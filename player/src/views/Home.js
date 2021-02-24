@@ -63,3 +63,4 @@ const Home = Vue.component("Home",
     },
   }
 )
+export default Home

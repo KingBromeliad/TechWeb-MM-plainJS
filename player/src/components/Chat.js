@@ -1,3 +1,6 @@
+import Message from './Message.js'
+import UserMessage from './UserMessage.js'
+
 const Chat = Vue.component("Chat", {
   template: ` <div class="fixed inset-0 overflow-hidden z-10">
     <div class="absolute inset-0 overflow-hidden">
@@ -187,3 +190,4 @@ const Chat = Vue.component("Chat", {
     };
   },
 });
+export default Chat

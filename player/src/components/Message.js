@@ -27,3 +27,4 @@ const Message = Vue.component("Message",
       }
   }
 )
+export default Message

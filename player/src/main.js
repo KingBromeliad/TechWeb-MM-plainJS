@@ -1,4 +1,7 @@
-const socket = io("http://localhost:8000/", {
+import Chat from './components/Chat.js'
+import Home from './views/Home.js'
+
+const socket = io("http://localhost:8000", {
     withCredentials: true,
     extraHeaders: {
         "cors-header" : "valid"
