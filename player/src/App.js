@@ -47,7 +47,7 @@ const App = Vue.component("App", {
       :data="this.game[this.progress]"
       @game-completed="nextView()"
       :time="this.formattedElapsedTime"
-      @updatePoints="updateScore"
+      @update-points="updateScore"
       :no_game="this.no_game"
       :punteggioFinale="this.score"
     />

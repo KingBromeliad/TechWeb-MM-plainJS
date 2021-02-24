@@ -169,7 +169,7 @@ export default {
         ],
       };
       this.$socket.client.emit("update_score", data);
-      this.$emit('updatePoints', this.punti);
+      this.$emit('update-points', this.punti);
     },
   },
   sockets: {

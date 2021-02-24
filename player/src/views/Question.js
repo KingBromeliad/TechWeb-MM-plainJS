@@ -1,5 +1,6 @@
-<template>
-  <div
+const Question = Vue.component("Question", 
+{
+    template: ` <div
     class="bg-fixed bg-cover bg-center bg-no-repeat min-h-screen"
     v-bind:style="{ 'background-image': background }"
   >
@@ -98,90 +99,87 @@
             role="button"
             aria-label="Continua alla sezione successiva"
           >
-            Continue
+            Continua
           </button>
         </div>
       </div>
     </section>
-  </div>
-</template>
-<script>
-export default {
-  name: "Question",
-  props: {
-    data: Object,
-    time: String,
-  },
-  computed: {
-    questionImage: function () {
-      if (this.data.images.singleQuestionImage)
-        return 'http://localhost:8000/' + this.data.images.questionImage;
-      else
+  </div>`,
+    props: {
+      data: Object,
+      time: String,
+    },
+    computed: {
+      questionImage: function () {
+        if (this.data.images.singleQuestionImage)
+          return 'http://localhost:8000/' + this.data.images.questionImage;
+        else
+          return (
+            'http://localhost:8000/' +
+            this.data.images.questionImages[this.currentQuestion]
+          );
+      },
+      domande: function () {
+        return this.data.domande;
+      },
+      background: function () {
         return (
+          "url(" +
           'http://localhost:8000/' +
-          this.data.images.questionImages[this.currentQuestion]
+          this.data.images.background +
+          ")"
         );
+      },
     },
-    domande: function () {
-      return this.data.domande;
-    },
-    background: function () {
-      return (
-        "url(" +
-        'http://localhost:8000/' +
-        this.data.images.background +
-        ")"
-      );
-    },
-  },
-  data: function () {
-    return {
-      currentQuestion: 0,
-      answers: [],
-      answer: "",
-      punti: 0,
-      playerId: "",
-      quizCompleted: false,
-    };
-  },
-  methods: {
-    ContinueToNext() {
-      this.$emit("game-completed");
-    },
-    updateScore() {
-      //punteggio aggiornato via via passandoli un valore
-      let data = {
-        playerId: this.playerId,
-        nome: this.playerId,
-        punteggi: [
-          {
-            nomeGioco: "Quiz",
-            punti: this.punti,
-            tempo: this.time,
-          },
-        ],
+    data: function () {
+      return {
+        currentQuestion: 0,
+        answers: [],
+        answer: "",
+        punti: 0,
+        playerId: "",
+        quizCompleted: false,
       };
-      this.$socket.client.emit("update_score", data);
-      this.$emit("update-points", this.punti);
     },
-    nextQuestion() {
-      if (this.answer == this.domande[this.currentQuestion].soluzione)
-        this.punti += 25;
-      else this.punti += 5;
-      this.currentQuestion++;
+    methods: {
+      ContinueToNext() {
+        this.$emit("game-completed");
+      },
+      updateScore() {
+        //punteggio aggiornato via via passandoli un valore
+        let data = {
+          playerId: this.playerId,
+          nome: this.playerId,
+          punteggi: [
+            {
+              nomeGioco: "Quiz",
+              punti: this.punti,
+              tempo: this.time,
+            },
+          ],
+        };
+        this.$socket.client.emit("update_score", data);
+        this.$emit("update-points", this.punti);
+      },
+      nextQuestion() {
+        if (this.answer == this.domande[this.currentQuestion].soluzione)
+          this.punti += 25;
+        else this.punti += 5;
+        this.currentQuestion++;
+      },
+      checkAnswers: function () {
+        if (this.answer == this.domande[this.currentQuestion].soluzione)
+          this.punti += 25;
+        else this.punti += 5;
+        this.quizCompleted = true;
+        this.updateScore();
+      },
     },
-    checkAnswers: function () {
-      if (this.answer == this.domande[this.currentQuestion].soluzione)
-        this.punti += 25;
-      else this.punti += 5;
-      this.quizCompleted = true;
-      this.updateScore();
+    sockets: {
+      req_player_id(data) {
+        this.playerId = data;
+      },
     },
-  },
-  sockets: {
-    req_player_id(data) {
-      this.playerId = data;
-    },
-  },
-};
-</script>
+  }
+)
+export default Question

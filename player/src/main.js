@@ -2,6 +2,7 @@ import Chat from './components/Chat.js'
 import Home from './views/Home.js'
 import Start from './views/Start.js'
 import PathGame from './views/PathGame.js'
+import Question from './views/Question.js'
 
 const socket = io("http://localhost:8000", {
     withCredentials: true,
@@ -30,6 +31,11 @@ const routes = [
     path: '/pathgame',
     name: 'PathGame',
     component: PathGame
+  },
+  {
+    path: '/question',
+    name: 'Question',
+    component: Question
   }
 ]
 

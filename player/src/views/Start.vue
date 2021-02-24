@@ -95,7 +95,7 @@ export default {
         ],
       };
       this.$socket.client.emit("update_score", data);
-      this.$emit('updatePoints', 1);
+      this.$emit('update-points', 1);
       //console.log(this.score);
     },
     get_player_Id(data) {

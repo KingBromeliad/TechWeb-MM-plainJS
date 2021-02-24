@@ -195,7 +195,7 @@ export default {
       };
       this.esitoValutazione = true;
       this.$socket.client.emit("update_score", gioco);
-      this.$emit("updatePoints", this.punti);
+      this.$emit("update-points", this.punti);
     },
     text_eval(data) {
       this.punti = parseInt(data.punti);
@@ -210,7 +210,7 @@ export default {
       };
       this.esitoValutazione = true;
       this.$socket.client.emit("update_score", gioco);
-      this.$emit("updatePoints", this.punti);
+      this.$emit("update-points", this.punti);
     },
   },
   mounted: function () {
