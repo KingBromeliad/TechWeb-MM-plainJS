@@ -61,6 +61,50 @@
         background-blend-mode: exclusion;
         background-image: var(--noise-pattern);
       }
+      .square {
+        background-blend-mode: exclusion;
+        box-shadow: inset 0 0 0 #0004;
+        text-shadow: -1px -1px 1px #000b, -1px 1px 1px #000b, 1px -1px 1px #000b,
+          1px 1px 1px #000b;
+        transition: all 0.25s ease;
+        outline: none;
+      }
+      .square.winner {
+        background: #8885;
+      }
+      .square:not([disabled]):empty:hover,
+      .square:not([disabled]):empty:focus {
+        box-shadow: inset 0 2px 25px #0006;
+        cursor: pointer;
+      }
+      .square:not([disabled]):empty:active {
+        box-shadow: inset 0 2px 50px #0008;
+      }
+      .square.X {
+        color: #ff5722;
+      }
+      .square.O {
+        color: #ffeb3b;
+      }
+      .qrcode-stream__camera,
+      .qrcode-stream__pause-frame {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        background-size: cover;
+        max-width: inherit !important;
+        max-height: inherit !important;
+      }
+      .qrcode-stream__inner-wrapper {
+        position: inherit !important;
+        max-width: inherit !important;
+        max-height: inherit !important;
+        z-index: inherit !important;
+      }
     </style>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
