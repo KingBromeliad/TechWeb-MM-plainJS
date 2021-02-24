@@ -3,6 +3,7 @@ import Home from './views/Home.js'
 import Start from './views/Start.js'
 import PathGame from './views/PathGame.js'
 import Question from './views/Question.js'
+import End from './views/End.js'
 
 const socket = io("http://localhost:8000", {
     withCredentials: true,
