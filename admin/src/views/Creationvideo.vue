@@ -103,7 +103,7 @@ export default {
   },
 
   mounted: function () {
-    if(Vue.prototype.$SavedFile==null) this.$router.push("Creation");
+    if (Vue.prototype.$SavedFile == null) this.$router.push("Creation");
     this.items = JSON.parse(
       JSON.stringify(Vue.prototype.$SavedFile.game[Vue.prototype.$numeroquiz])
     );
