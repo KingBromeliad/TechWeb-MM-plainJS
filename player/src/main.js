@@ -11,7 +11,7 @@ import ImageGame from "./views/ImageGame.js";
 import QrCodeGame from "./views/QrCodeGame.js";
 import MusGame from "./views/MusGame.js";
 
-const socket = io("http://localhost:8000", {
+var socket = io("http://localhost:8000", {
   withCredentials: true,
   extraHeaders: {
     "cors-header": "valid",
