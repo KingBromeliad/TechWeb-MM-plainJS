@@ -77,7 +77,7 @@ const Start = Vue.component("Start",
         this.updateScore();
       },
       ContinueToNext() {
-        this.$emit("game_completed");
+        this.$emit("game-completed");
       },
       updateScore() {
         //punteggio aggiornato via via passandoli un valore
@@ -93,7 +93,7 @@ const Start = Vue.component("Start",
           ],
         };
         this.$socket.client.emit("update_score", data);
-        this.$emit('updatePoints', 1);
+        this.$emit('update-points', 1);
         //console.log(this.score);
       },
       get_player_Id(data) {
