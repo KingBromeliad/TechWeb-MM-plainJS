@@ -1,5 +1,6 @@
-<template>
-  <div
+const ImageGame = Vue.component("ImageGame",
+{
+    template: ` <div
     class="bg-fixed bg-cover bg-no-repeat bg-center min-h-screen"
     v-bind:style="{ 'background-image': background }"
   >
@@ -120,101 +121,97 @@
         </button>
       </div>
     </div>
-  </div>
-</template>
-
-<script>
-export default {
-  name: "imageGame",
-  props: {
-    data: Object,
-    time: String,
-  },
-  computed: {
-    address: function(){
-      return 'http://localhost:8000/' + "immagineRicevuta"
+  </div>`,
+    props: {
+      data: Object,
+      time: String,
     },
-    imageGame: function() {
-      return this.data.image_or_text; //true for image, false for text
+    computed: {
+      address: function(){
+        return 'http://localhost:8000/' + "immagineRicevuta"
+      },
+      imageGame: function() {
+        return this.data.image_or_text; //true for image, false for text
+      },
+      background: function() {
+        return "url(" + 'http://localhost:8000/' + this.data.images.background + ")";
+      },
     },
-    background: function() {
-      return "url(" + 'http://localhost:8000/' + this.data.images.background + ")";
-    },
-  },
-  data: function () {
-    return {
-      playerId: "",
-      esitoValutazione: false,
-      punti: 0,
-      commentoValutatore: "",
-      text: "",
-    };
-  },
-  methods: {
-    sendFile: function (event) {
-      let formData = new FormData();
-      formData.append("image", event.target.files[0]);
-      //console.log(this.playerId);
-      formData.append("playerId", this.playerId);
-      this.axios
-        .post(this.address, formData)
-        .then((response) => {
-          console.log(response);
-          this.$socket.client.emit("image_sent", true);
-        })
-        .catch((errors) => {
-          console.log("Invalid Data", errors);
-        });
-    },
-    sendText() {
-      let data = {
-        playerId: this.playerId,
-        text: this.text,
+    data: function () {
+      return {
+        playerId: "",
+        esitoValutazione: false,
+        punti: 0,
+        commentoValutatore: "",
+        text: "",
       };
-      //console.log(data);
-      this.$socket.client.emit("gioco_testo", data);
     },
-    ContinueToNext() {
-      this.$emit("game-completed");
+    methods: {
+      sendFile: function (event) {
+        let formData = new FormData();
+        formData.append("image", event.target.files[0]);
+        //console.log(this.playerId);
+        formData.append("playerId", this.playerId);
+        this.axios
+          .post(this.address, formData)
+          .then((response) => {
+            console.log(response);
+            this.$socket.client.emit("image_sent", true);
+          })
+          .catch((errors) => {
+            console.log("Invalid Data", errors);
+          });
+      },
+      sendText() {
+        let data = {
+          playerId: this.playerId,
+          text: this.text,
+        };
+        //console.log(data);
+        this.$socket.client.emit("gioco_testo", data);
+      },
+      ContinueToNext() {
+        this.$emit("game-completed");
+      },
     },
-  },
-  sockets: {
-    get_player_Id(data) {
-      this.playerId = data;
-      //console.log(this.playerId);
+    sockets: {
+      get_player_Id(data) {
+        this.playerId = data;
+        //console.log(this.playerId);
+      },
+      image_eval(data) {
+        this.punti = parseInt(data.punti);
+        this.commentoValutatore = data.commento;
+        let gioco = {
+          playerId: this.playerId,
+          nome: this.playerId,
+          punteggi: [
+            { nomeGioco: "imageGame", punti: this.punti, tempo: this.time },
+          ],
+        };
+        this.esitoValutazione = true;
+        this.$socket.client.emit("update_score", gioco);
+        this.$emit("update-points", this.punti);
+      },
+      text_eval(data) {
+        this.punti = parseInt(data.punti);
+        console.log(data.punti);
+        this.commentoValutatore = data.commento;
+        let gioco = {
+          playerId: this.playerId,
+          nome: this.playerId,
+          punteggi: [
+            { nomeGioco: "textGame", punti: this.punti, tempo: this.time },
+          ],
+        };
+        this.esitoValutazione = true;
+        this.$socket.client.emit("update_score", gioco);
+        this.$emit("update-points", this.punti);
+      },
     },
-    image_eval(data) {
-      this.punti = parseInt(data.punti);
-      this.commentoValutatore = data.commento;
-      let gioco = {
-        playerId: this.playerId,
-        nome: this.playerId,
-        punteggi: [
-          { nomeGioco: "imageGame", punti: this.punti, tempo: this.time },
-        ],
-      };
-      this.esitoValutazione = true;
-      this.$socket.client.emit("update_score", gioco);
-      this.$emit("update-points", this.punti);
+    mounted: function () {
+      this.$socket.client.emit("req_player_id");
     },
-    text_eval(data) {
-      this.punti = parseInt(data.punti);
-      console.log(data.punti);
-      this.commentoValutatore = data.commento;
-      let gioco = {
-        playerId: this.playerId,
-        nome: this.playerId,
-        punteggi: [
-          { nomeGioco: "textGame", punti: this.punti, tempo: this.time },
-        ],
-      };
-      this.esitoValutazione = true;
-      this.$socket.client.emit("update_score", gioco);
-      this.$emit("update-points", this.punti);
-    },
-  },
-  mounted: function () {
-    this.$socket.client.emit("req_player_id");
-  },
-};
-</script>
+  }
+)
+export default ImageGame

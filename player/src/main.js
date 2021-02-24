@@ -1,15 +1,21 @@
-import Chat from './components/Chat.js'
-import Home from './views/Home.js'
-import Start from './views/Start.js'
-import PathGame from './views/PathGame.js'
-import Question from './views/Question.js'
-import End from './views/End.js'
+import Chat from "./components/Chat.js";
+import Home from "./views/Home.js";
+import Start from "./views/Start.js";
+import PathGame from "./views/PathGame.js";
+import Question from "./views/Question.js";
+import End from "./views/End.js";
+import StartAccessible from "./views/StartAccessible.js";
+import Game from "./views/Game.js";
+import Video from "./views/Video.js";
+import ImageGame from "./views/ImageGame.js";
+import QrCodeGame from "./views/QrCodeGame.js";
+import MusGame from "./views/MusGame.js";
 
 const socket = io("http://localhost:8000", {
-    withCredentials: true,
-    extraHeaders: {
-        "cors-header" : "valid"
-    }
+  withCredentials: true,
+  extraHeaders: {
+    "cors-header": "valid",
+  },
 });
 
 Vue.use(VueSocketIOExt, socket);
@@ -19,26 +25,61 @@ Vue.use(VueSocketIOExt, socket);
  *********************************/
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/start',
-    name: 'Start',
-    component: Start
+    path: "/startAccessible",
+    name: "StartAccessible",
+    component: StartAccessible,
   },
   {
-    path: '/pathgame',
-    name: 'PathGame',
-    component: PathGame
+    path: "/start",
+    name: "Start",
+    component: Start,
   },
   {
-    path: '/question',
-    name: 'Question',
-    component: Question
-  }
-]
+    path: "/pathgame",
+    name: "PathGame",
+    component: PathGame,
+  },
+  {
+    path: "/question",
+    name: "Question",
+    component: Question,
+  },
+  {
+    path: "/game",
+    name: "Tris",
+    component: Game,
+  },
+  {
+    path: "/musGame",
+    name: "MusGame",
+    component: MusGame,
+  },
+  {
+    path: "/video",
+    name: "Video",
+    component: Video,
+  },
+  {
+    path: "/imageGame",
+    name: "ImageGame",
+    component: ImageGame,
+  },
+  {
+    path: "/qrCodeGame",
+    name: "QrCodeGame",
+    component: QrCodeGame,
+  },
+  {
+    path: "/end",
+    name: "End",
+    component: End,
+  },
+];
 
 const router = new VueRouter({
   routes, // short for `routes: routes`
@@ -50,7 +91,7 @@ const router = new VueRouter({
 
 const App = new Vue({
   router,
-  el: '#app',
+  el: "#app",
   components: {
     Chat,
   },
@@ -125,7 +166,7 @@ const App = new Vue({
   },
   sockets: {
     connect() {
-      console.log('socket connected')
+      console.log("socket connected");
     },
     get_player_Id(id) {
       this.player_id = id;
@@ -133,5 +174,5 @@ const App = new Vue({
   },
   mounted: function () {
     this.$socket.client.emit("req_player_id");
-  }
-}).$mount()
+  },
+}).$mount();

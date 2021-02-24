@@ -1,5 +1,6 @@
-<template>
-  <div
+const Video = Vue.component("Video", 
+{
+    template: `<div
     class="bg-fixed bg-cover bg-no-repeat bg-center min-h-screen"
     v-bind:style="{ 'background-image': background }"
   >
@@ -49,71 +50,69 @@
         </button>
       </div>
     </div>
-  </div>
-</template>
-<script>
-export default {
-  props: {
-    data: Object,
-    time: String,
-  },
-  computed: {
-    title: function() {
-      return this.data.title[this.line];
+  </div>`,
+    props: {
+      data: Object,
+      time: String,
     },
-    source: function() {
-      if (this.data.resourceType) return this.data.source[this.line];
-      else return 'http://localhost:8000/' + this.data.images.image;
+    computed: {
+      title: function() {
+        return this.data.title[this.line];
+      },
+      source: function() {
+        if (this.data.resourceType) return this.data.source[this.line];
+        else return 'http://localhost:8000/' + this.data.images.image;
+      },
+      background: function() {
+        return "url(" + 'http://localhost:8000/' + this.data.images.background + ")";
+      },
+      resourceType: function() {
+        return this.data.resourceType;
+      },
     },
-    background: function() {
-      return "url(" + 'http://localhost:8000/' + this.data.images.background + ")";
-    },
-    resourceType: function() {
-      return this.data.resourceType;
-    },
-  },
-  data: function() {
-    return {
-      line: 0,
-      playerId: ""
-    };
-  },
-  methods: {
-    Continue() {
-      if (this.line < this.data.source.length - 1) {
-        this.line++;
-        this.updateScore();
-      } else if (this.line == this.data.source.length - 1) {
-        this.updateScore();
-        this.ContinueToNext();
-      }
-    },
-    ContinueToNext() {
-      this.$emit("game-completed");
-    },
-    updateScore() {
-      //punteggio aggiornato via via passandoli un valore
-      let data = {
-        playerId: this.playerId,
-        nome: this.playerId,
-        punteggi: [
-          {
-            nomeGioco: "Video",
-            punti: 1,
-            tempo: this.time
-          },
-        ],
+    data: function() {
+      return {
+        line: 0,
+        playerId: ""
       };
-      this.$socket.client.emit("update_score", data);
-      this.$emit('update-points', 1);
-      //console.log(this.score);
     },
-    get_player_Id(data) {
-      this.playerId = data;
+    methods: {
+      Continue() {
+        if (this.line < this.data.source.length - 1) {
+          this.line++;
+          this.updateScore();
+        } else if (this.line == this.data.source.length - 1) {
+          this.updateScore();
+          this.ContinueToNext();
+        }
+      },
+      ContinueToNext() {
+        this.$emit("game-completed");
+      },
+      updateScore() {
+        //punteggio aggiornato via via passandoli un valore
+        let data = {
+          playerId: this.playerId,
+          nome: this.playerId,
+          punteggi: [
+            {
+              nomeGioco: "Video",
+              punti: 1,
+              tempo: this.time
+            },
+          ],
+        };
+        this.$socket.client.emit("update_score", data);
+        this.$emit('update-points', 1);
+        //console.log(this.score);
+      },
+      get_player_Id(data) {
+        this.playerId = data;
+      },
     },
-  },
-  mounted: function () {
-    this.$socket.emit('req_player_id')
+    mounted: function () {
+      this.$socket.emit('req_player_id')
+    }
   }
-};
-</script>
+)
+export default Video

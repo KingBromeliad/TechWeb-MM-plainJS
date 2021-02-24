@@ -52,7 +52,7 @@
             class="bg-black hover:bg-gray-700 focus:outline-none rounded-lg font-bold text-center text-white md:text-2xl sm:text-xl p-2 mt-4"
             aria-label="Clicca sul pulsante per continuare"
           >
-            Continue
+            Continua
           </button>
         </div>
       </div>

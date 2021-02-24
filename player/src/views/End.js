@@ -59,3 +59,4 @@ const End = Vue.component("End",
     },
   }
 )
+export default End

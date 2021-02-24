@@ -1,5 +1,5 @@
 <template>
-  <body
+  <div
     class="bg-fixed bg-cover bg-center bg-no-repeat min-h-screen"
     v-bind:style="{ 'background-image': background }"
   >
@@ -38,7 +38,7 @@
         </button>
       </div>
     </div>
-  </body>
+  </div>
 </template>
 
 <script>
