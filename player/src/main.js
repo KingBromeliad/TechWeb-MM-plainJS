@@ -34,7 +34,7 @@ const App = new Vue({
   },
   beforeCreate: function () {
     axios
-      .get("http://localhost:3500/openStory")
+      .get("http://localhost:8000/openStory")
       .then((response) => {
         this.game = response.data.game;
         this.no_game = true;
@@ -102,6 +102,9 @@ const App = new Vue({
     },
   },
   sockets: {
+    connect() {
+      console.log('socket connected')
+    },
     get_player_Id(id) {
       this.player_id = id;
     },

@@ -145,10 +145,16 @@ app.post("/api/register", (req, res) => {
   return res.send();
 });
 
-//Per inviare la storia come file JSON
+//Per inviare la storia come file JSON 
+/*
 app.get("/openStory", (req, res) => {
   console.log(req.body);
   let story = JSON.parse(fs.readFileSync(__dirname + '/' + storiacorrente));
+  res.send(story);
+});
+*/
+app.get("/openStory", (req, res) => {
+  let story = JSON.parse(fs.readFileSync(__dirname + '/' + 'storiaDinosauri.json'));
   res.send(story);
 });
 
