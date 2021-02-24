@@ -395,14 +395,14 @@ const Creationstory = Vue.component("Creationstory", {
             Vue.prototype.$oldName = JSON.parse(JSON.stringify(Vue.prototype.$SavedFile.namestory));
             let newname = JSON.parse(JSON.stringify(Vue.prototype.$SavedFile.namestory));
             let lista;
-            this.axios.get("http://localhost:3500/SendStory").then((response) => {
+            axios.get("http://localhost:8000/SendStory").then((response) => {
                 console.log(response.data);
                 lista = response.data;
                 lista[this.$numerostoria].name = newname;
                 console.log(lista[this.$numerostoria].name);
                 console.log(lista);
                 let filejson = lista;
-                this.axios.post('http://localhost:3500/writeStoryList', {
+                axios.post('http://localhost:8000/writeStoryList', {
                     filejson
                 })
                     .then(function (response) {
@@ -426,7 +426,7 @@ const Creationstory = Vue.component("Creationstory", {
 
         eliminajson(data) {
             let filejson = data;
-            this.axios.post('http://localhost:3500/deleteStory', {
+            axios.post('http://localhost:8000/deleteStory', {
                 filejson
             })
                 .then(function (response) {
@@ -440,7 +440,7 @@ const Creationstory = Vue.component("Creationstory", {
 
         inviajson(data) {
             let filejson = JSON.parse(JSON.stringify(data));
-            this.axios.post('http://localhost:3500/writeStory', {
+            axios.post('http://localhost:8000/writeStory', {
                 filejson
             })
                 .then(function (response) {

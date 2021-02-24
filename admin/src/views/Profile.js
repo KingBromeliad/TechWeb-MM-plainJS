@@ -1,4 +1,4 @@
-import Chat from "./components/Chat.js"
+import Chat from "../components/Chat.js"
 const Profile = Vue.component("Profile", {
     template: `
         <div>
@@ -66,8 +66,8 @@ const Profile = Vue.component("Profile", {
     methods: {
         getUserData: function () {
             let self = this;
-            this.axios
-                .get("http://localhost:3500/api/user", { withCredentials: true })
+            axios
+                .get("http://localhost:8000/api/user", { withCredentials: true })
                 .then((response) => {
                     //console.log(response);
                     this.logged = true;
@@ -81,8 +81,8 @@ const Profile = Vue.component("Profile", {
                 });
         },
         logout: function () {
-            this.axios
-                .get("http://localhost:3500/api/logout", { withCredentials: true })
+            axios
+                .get("http://localhost:8000/api/logout", { withCredentials: true })
                 .then((response) => {
                     this.$set(this, "user", "");
                     console.log(response.data);

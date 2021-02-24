@@ -60,8 +60,8 @@ export default {
       formData.append("image", event.target.files[0]);
       console.log(event.target.files[0].name);
       this.items.images.background = event.target.files[0].name;
-      this.axios
-        .post("http://localhost:3500/immagineMeglio", formData)
+      axios
+        .post("http://localhost:8000/immagineMeglio", formData)
         .then((response) => {
           console.log(response);
         })

@@ -1,4 +1,3 @@
-const session = require("express-session");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const passport = require("passport");
@@ -29,9 +28,6 @@ app.use(express.static(__dirname + '/images'));
 
 app.use(express.static(__dirname + '/json'));
 
-app.get('/test', (req, res) => {
-  res.send("Test 4");
-});
 
 app.get('/player', (req, res) => {
   res.sendFile(__dirname + '/player/index.html');
@@ -47,7 +43,6 @@ const whitelist = ['http://localhost:8081', 'http://localhost:8080','http://loca
 app.use(cors({ credentials: true, origin: whitelist }));
 // Tipologia di autenticazione locale
 const LocalStrategy = require('passport-local').Strategy;
-const { Socket } = require("dgram");
 
 //Creo la sessione con un cookie che dura 24 ore
 app.use(bodyParser.json())
@@ -145,14 +140,7 @@ app.post("/api/register", (req, res) => {
   return res.send();
 });
 
-//Per inviare la storia come file JSON 
-/*
-app.get("/openStory", (req, res) => {
-  console.log(req.body);
-  let story = JSON.parse(fs.readFileSync(__dirname + '/' + storiacorrente));
-  res.send(story);
-});
-*/
+
 app.get("/openStory", (req, res) => {
   let story = JSON.parse(fs.readFileSync(__dirname + '/' + 'storiaDinosauri.json'));
   res.send(story);

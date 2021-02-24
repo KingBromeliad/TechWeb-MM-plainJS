@@ -74,7 +74,7 @@ const Register = Vue.component("Register", {
             //console.log(name + username + password);
             if (password == confirmPass) {
                 axios
-                    .post("http://localhost:3500/api/register", {
+                    .post("http://localhost:8000/api/register", {
                         name,
                         username,
                         password,

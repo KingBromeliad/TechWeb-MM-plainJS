@@ -1,4 +1,4 @@
-const Home = Vue.component("Home", {
+const HomeAdmin = Vue.component("HomeAdmin", {
     template:`
         <div class="grid place-items-center w-screen h-screen">
             <div class="flex-col place-content-center h-4/5 w-2/5">
@@ -20,4 +20,4 @@ const Home = Vue.component("Home", {
         </div>
         `
 });
-export default Home
+export default HomeAdmin

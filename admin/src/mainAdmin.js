@@ -10,7 +10,7 @@ import Creationstartaccessibile from "./views/Creationstartaccessibile.js";
 import Creationstory from "./views/Creationstory.js";
 import Creationtris from "./views/Creationtris.js";
 import Creationvideo from "./views/Creationvideo.js";
-import Home from "./views/Home.js";
+import HomeAdmin from "./views/HomeAdmin.js";
 import Login from "./views/Login.js";
 import Profile from "./views/Profile.js";
 import Register from "./views/Register.js";
@@ -22,15 +22,14 @@ var socket = io("http://localhost:8000/", {
   }
 })
 
-Vue.use(VueSocketIOExt, socket)
-Vue.use(VueAxios, axios)
-Vue.use(VModal)
+Vue.use(VueSocketIOExt, socket);
+
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'HomeAdmin',
+    component: HomeAdmin
   },
   {
     path: '/creation',
@@ -113,7 +112,9 @@ const router = new VueRouter({
   routes, // short for `routes: routes`
 });
 
-const App = new Vue({
+Vue.use(router);
+
+new Vue({
   el: "#app",
   components: {
     Chat,
@@ -124,8 +125,8 @@ const App = new Vue({
   methods: {
     //Metodo per ricavare i dati utente e controllare che sia acceduto
     getUserData: function () {
-      this.axios
-        .get("http://localhost:3500/api/user", { withCredentials: true })
+      axios
+        .get("http://localhost:8000/api/user", { withCredentials: true })
         .then((response) => {
           this.username = response.data.username;
           this.password = response.data.password;
@@ -157,12 +158,11 @@ const App = new Vue({
       componentToRerender: 0,
       logged: false,
       chatActive: false,
-      adminName: "",
+      adminName: ""
     };
   },
   mounted() {
     console.log("montato");
   },
-  router,
-  render: h => h(App)
-}).$mount('#app')
+  router
+}).$mount()

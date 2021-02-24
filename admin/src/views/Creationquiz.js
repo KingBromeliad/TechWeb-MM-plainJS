@@ -164,8 +164,8 @@ const Creationquiz = Vue.component("Creationquiz", {
             let formData = new FormData();
             formData.append("image", event.target.files[0]);
             this.items.images.questionImages[data] = event.target.files[0].name;
-            this.axios
-                .post("http://localhost:3500/immagineMeglio", formData)
+            axios
+                .post("http://localhost:8000/immagineMeglio", formData)
                 .then((response) => {
                     console.log(response);
                 })
@@ -190,8 +190,8 @@ const Creationquiz = Vue.component("Creationquiz", {
             formData.append("image", event.target.files[0]);
             console.log(event.target.files[0].name);
             this.items.images.background[0] = event.target.files[0].name;
-            this.axios
-                .post("http://localhost:3500/immagineMeglio", formData)
+            axios
+                .post("http://localhost:8000/immagineMeglio", formData)
                 .then((response) => {
                     console.log(response);
                 })
@@ -204,8 +204,8 @@ const Creationquiz = Vue.component("Creationquiz", {
             formData.append("image", event.target.files[0]);
             console.log(event.target.files[0].name);
             this.items.images.questionImage = event.target.files[0].name;
-            this.axios
-                .post("http://localhost:3500/immagineMeglio", formData)
+            axios
+                .post("http://localhost:8000/immagineMeglio", formData)
                 .then((response) => {
                     console.log(response);
                 })

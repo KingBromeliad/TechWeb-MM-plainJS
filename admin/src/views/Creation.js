@@ -267,8 +267,8 @@ const Creation = Vue.component("Creation", {
             this.lista.splice(this.storiadaeliminare, 1);
             this.openmodal = false;
             this.invialistastoria();
-            this.axios
-                .post("http://localhost:3500/deleteStory", {
+            axios
+                .post("http://localhost:8000/deleteStory", {
                     filejson,
                 })
                 .then(function (response) {
@@ -295,8 +295,8 @@ const Creation = Vue.component("Creation", {
             this.lista.push(a);
             console.log(this.lista);
             let filejson = this.lista;
-            this.axios
-                .post("http://localhost:3500/writeStoryList", {
+            axios
+                .post("http://localhost:8000/writeStoryList", {
                     filejson,
                 })
                 .then(function (response) {
@@ -305,8 +305,8 @@ const Creation = Vue.component("Creation", {
                 .catch(function (error) {
                     console.log(error);
                 });
-            this.axios
-                .get("http://localhost:3500/prendiStoria", {
+            axios
+                .get("http://localhost:8000/prendiStoria", {
                     params: {
                         NAME: nomenuovo,
                     },
@@ -319,8 +319,8 @@ const Creation = Vue.component("Creation", {
                     this.jsoncreato.namestory = nomenuovo + " nuovo";
                     let filejson = this.jsoncreato;
                     console.log(filejson);
-                    this.axios
-                        .post("http://localhost:3500/writeStory", {
+                    axios
+                        .post("http://localhost:8000/writeStory", {
                             filejson,
                         })
                         .then(function (response) {
@@ -345,8 +345,8 @@ const Creation = Vue.component("Creation", {
             Vue.prototype.$numerostoria = this.lista.length;
             this.lista.push(a);
             this.invialistastoria();
-            this.axios
-                .get("http://localhost:3500/prendiStoria", {
+            axios
+                .get("http://localhost:8000/prendiStoria", {
                     params: {
                         NAME: "Default",
                     },
@@ -359,8 +359,8 @@ const Creation = Vue.component("Creation", {
                     Vue.prototype.$SavedFile = this.jsoncreato;
                     this.$router.push("Creationstory");
                     let filejson = this.jsoncreato;
-                    this.axios
-                        .post("http://localhost:3500/writeStory", {
+                    axios
+                        .post("http://localhost:8000/writeStory", {
                             filejson,
                         })
                         .then(function (response) {
@@ -376,8 +376,8 @@ const Creation = Vue.component("Creation", {
                 });
         },
         vaialcreator(data) {
-            this.axios
-                .get("http://localhost:3500/prendiStoria", {
+            axios
+                .get("http://localhost:8000/prendiStoria", {
                     params: {
                         NAME: data,
                     },
@@ -393,8 +393,8 @@ const Creation = Vue.component("Creation", {
         },
         invialistastoria() {
             let filejson = JSON.parse(JSON.stringify(this.lista));
-            this.axios
-                .post("http://localhost:3500/writeStoryList", {
+            axios
+                .post("http://localhost:8000/writeStoryList", {
                     filejson,
                 })
                 .then(function (response) {
@@ -405,8 +405,8 @@ const Creation = Vue.component("Creation", {
                 });
         },
         getStory() {
-            this.axios
-                .get("http://localhost:3500/SendStory")
+            axios
+                .get("http://localhost:8000/SendStory")
                 .then((response) => {
                     console.log(response.data);
                     this.lista = response.data;
@@ -421,8 +421,8 @@ const Creation = Vue.component("Creation", {
         },
     },
     mounted: function () {
-        this.axios
-            .get("http://localhost:3500/api/user", { withCredentials: true })
+        axios
+            .get("http://localhost:8000/api/user", { withCredentials: true })
             .then((response) => {
                 return response;
             })

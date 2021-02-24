@@ -1,5 +1,3 @@
-import Creation from "./Creation";
-
 const Creationstart = Vue.component("Creationstart", {
     template: `    
         <div v-if="items != null" class="justify justify-center space-y-4">
@@ -187,8 +185,8 @@ const Creationstart = Vue.component("Creationstart", {
             console.log(event.target.files[0].name);
             this.items.images.background.pop();
             this.items.images.background.push(event.target.files[0].name);
-            this.axios
-                .post("http://localhost:3500/immagineMeglio", formData)
+            axios
+                .post("http://localhost:8000/immagineMeglio", formData)
                 .then((response) => {
                     console.log(response);
                 })
@@ -201,8 +199,8 @@ const Creationstart = Vue.component("Creationstart", {
             formData.append("image", event.target.files[0]);
             console.log(event.target.files[0].name);
             this.items.images.character = event.target.files[0].name;
-            this.axios
-                .post("http://localhost:3500/immagineMeglio", formData)
+            axios
+                .post("http://localhost:8000/immagineMeglio", formData)
                 .then((response) => {
                     console.log(response);
                 })
@@ -217,8 +215,8 @@ const Creationstart = Vue.component("Creationstart", {
             console.log(event.target.files[0].name);
             this.items.images.characters[data] = event.target.files[0].name;
             console.log(this.items.images.characters[data]);
-            this.axios
-                .post("http://localhost:3500/immagineMeglio", formData)
+            axios
+                .post("http://localhost:8000/immagineMeglio", formData)
                 .then((response) => {
                     console.log(response);
                 })

@@ -95,7 +95,7 @@ export default {
           password: password,
         };
         axios
-          .post("http://localhost:3500/api/login", data, {
+          .post("http://localhost:8000/api/login", data, {
             withCredentials: true,
           })
           .then((response) => {
