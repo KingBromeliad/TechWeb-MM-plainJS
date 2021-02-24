@@ -62,8 +62,8 @@ export default {
     Chat,
   },
   beforeCreate: function () {
-    this.axios
-      .get("http://localhost:3500/openStory")
+    axios
+      .get("http://localhost:8000/openStory")
       .then((response) => {
         this.game = response.data.game;
         this.no_game = true;

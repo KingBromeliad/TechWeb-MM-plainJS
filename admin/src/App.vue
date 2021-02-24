@@ -214,8 +214,8 @@ export default {
   methods: {
     //Metodo per ricavare i dati utente e controllare che sia acceduto
     getUserData: function () {
-      this.axios
-        .get("http://localhost:3500/api/user", { withCredentials: true })
+      axios
+        .get("http://localhost:8000/api/user", { withCredentials: true })
         .then((response) => {
           this.username = response.data.username;
           this.password = response.data.password;

@@ -152,7 +152,7 @@ const ImageGame = Vue.component("ImageGame",
         formData.append("image", event.target.files[0]);
         //console.log(this.playerId);
         formData.append("playerId", this.playerId);
-        this.axios
+        axios
           .post(this.address, formData)
           .then((response) => {
             console.log(response);

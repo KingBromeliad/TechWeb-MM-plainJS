@@ -135,7 +135,7 @@
       <p v-show="partitaSalvata" class="px-4 py-2 m-2">
         La partita e' raggiungibile:
         <a
-          :href="'http://localhost:3500/' + nomePartita + '.json'"
+          :href="'http://localhost:8000/' + nomePartita + '.json'"
           class="underline"
           >{{ nomePartita }}
         </a>
@@ -178,11 +178,11 @@ export default {
     },
     getImage: function () {
       //chiamata all'API per prendere un immagine e ritorna l'URL come stringa
-      this.axios
-        .get("http://localhost:3500/immagineDaValutare")
+      axios
+        .get("http://localhost:8000/immagineDaValutare")
         .then((response) => {
           this.immagineDaValutare.imageUrl =
-            "http://localhost:3500/" + response.data.url;
+            "http://localhost:8000/" + response.data.url;
           //console.log(this.immagineDaValutare.imageUrl);
           this.immagineDaValutare.playerIdSendingImage = response.data.playerId;
           //console.log(this.immagineDaValutare.playerIdSendingImage);

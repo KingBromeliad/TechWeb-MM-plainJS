@@ -79,8 +79,8 @@ export default {
       formData.append("image", event.target.files[0]);
       console.log(event.target.files[0].name);
       this.items.images.background = event.target.files[0].name;
-      this.axios
-        .post("http://localhost:3500/immagineMeglio", formData)
+      axios
+        .post("http://localhost:8000/immagineMeglio", formData)
         .then((response) => {
           console.log(response);
         })
@@ -103,7 +103,7 @@ export default {
   },
 
   mounted: function () {
-    if(Vue.prototype.$SavedFile==null) this.$router.push("Creation");
+    if (Vue.prototype.$SavedFile == null) this.$router.push("Creation");
     this.items = JSON.parse(
       JSON.stringify(Vue.prototype.$SavedFile.game[Vue.prototype.$numeroquiz])
     );
