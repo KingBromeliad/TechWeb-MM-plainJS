@@ -1,10 +1,10 @@
 <template>
   <div>
     <chat
-      @hideChat="chatActive = !chatActive"
+      @hide-chat="chatActive = !chatActive"
       v-show="chatActive"
       :slideOver="chatActive"
-      :adminName="adminName"
+      :admin_name="admin_name"
     ></chat>
     <div class="grid place-items-center w-screen h-screen">
       <div class="flex-col place-content-center h-4/5 w-3/5">
@@ -64,7 +64,7 @@ export default {
         name: "",
       },
       chatActive: false,
-      adminName: "",
+      admin_name: "",
     };
   },
   methods: {
@@ -77,7 +77,7 @@ export default {
           this.logged = true;
           //console.log(this.logged);
           self.$set(this, "user", response.data.user);
-          this.adminName = response.data.user.username;
+          this.admin_name = response.data.user.username;
         })
         .catch((errors) => {
           console.log(errors);

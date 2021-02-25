@@ -3,10 +3,10 @@ const Profile = Vue.component("Profile", {
     template: `
         <div>
             <chat
-            @hideChat="chatActive = !chatActive"
+            @hide-chat="chatActive = !chatActive"
             v-show="chatActive"
-            :slideOver="chatActive"
-            :adminName="adminName"
+            :slide_over="chatActive"
+            :admin_name="admin_name"
             ></chat>
             <div class="grid place-items-center w-screen h-screen">
             <div class="flex-col place-content-center h-4/5 w-3/5">
@@ -60,7 +60,7 @@ const Profile = Vue.component("Profile", {
                 name: "",
             },
             chatActive: false,
-            adminName: "",
+            admin_name: "",
         };
     },
     methods: {
@@ -73,7 +73,7 @@ const Profile = Vue.component("Profile", {
                     this.logged = true;
                     //console.log(this.logged);
                     self.$set(this, "user", response.data.user);
-                    this.adminName = response.data.user.username;
+                    this.admin_name = response.data.user.username;
                 })
                 .catch((errors) => {
                     console.log(errors);

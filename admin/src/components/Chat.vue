@@ -219,7 +219,7 @@ export default {
   },
   props: {
     slideOver: Boolean,
-    adminName: String,
+    admin_name: String,
   },
   sockets: {
     connect() {
@@ -252,7 +252,7 @@ export default {
     sendMessage: function () {
       //dati che invia col socket
       let data = {
-        adminName: this.adminName,
+        admin_name: this.admin_name,
         message: this.userMessage,
       };
       //dati che stampa a video
@@ -268,7 +268,7 @@ export default {
     },
     //per chiudere il modale della chat
     closeChat: function () {
-      this.$emit("hideChat");
+      this.$emit("hide-chat");
     },
   },
   data: function () {

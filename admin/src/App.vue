@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <chat
-      @hideChat="chatActive = !chatActive"
+      @hide-chat="chatActive = !chatActive"
       v-show="chatActive"
       :slideOver="chatActive"
-      :adminName="adminName"
+      :admin_name="admin_name"
     ></chat>
 
     <nav class="bg-gray-800">
@@ -247,7 +247,7 @@ export default {
       componentToRerender: 0,
       logged: false,
       chatActive: false,
-      adminName: "",
+      admin_name: "",
     };
   },
   mounted() {

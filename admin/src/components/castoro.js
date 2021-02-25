@@ -1,7 +1,8 @@
 import Message from './Message.js'
 import UserMessage from './UserMessage.js'
 
-const Chat = Vue.component("Chat", {
+const castoro = Vue.component("castoro", {
+    name: "castoro",
     template: ` 
         <div class="fixed inset-0 overflow-hidden">
             <div class="absolute inset-0 overflow-hidden">
@@ -24,9 +25,7 @@ const Chat = Vue.component("Chat", {
                 leave-to-class="opacity-0"
             >
                 <div
-                v-show="slideOver"
                 class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-                aria-hidden="true"
                 ></div>
             </transition>
 
@@ -39,7 +38,6 @@ const Chat = Vue.component("Chat", {
                 leave-to-class="translate-x-full"
             >
                 <section
-                v-show="slideOver"
                 class="absolute inset-y-0 right-0 pl-10 max-w-full flex"
                 aria-labelledby="slide-over-heading"
                 >
@@ -67,7 +65,6 @@ const Chat = Vue.component("Chat", {
                     leave-to-class="opacity-0"
                     >
                     <div
-                        v-show="slideOver"
                         class="absolute top-0 left-0 -ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4"
                     >
                         <button
@@ -190,8 +187,8 @@ const Chat = Vue.component("Chat", {
         UserMessage,
     },
     props: {
-        slideOver: Boolean,
-        adminName: String,
+        slide_over: Boolean,
+        admin_name: String,
     },
     sockets: {
         connect() {
@@ -224,7 +221,7 @@ const Chat = Vue.component("Chat", {
         sendMessage: function () {
             //dati che invia col socket
             let data = {
-                adminName: this.adminName,
+                admin_name: this.admin_name,
                 message: this.userMessage,
             };
             //dati che stampa a video
@@ -250,4 +247,4 @@ const Chat = Vue.component("Chat", {
         };
     },
 });
-export default Chat
+export default castoro

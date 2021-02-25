@@ -1,4 +1,4 @@
-import Chat from "./components/Chat.js";
+import castoro from "./components/castoro.js";
 import Creation from "./views/Creation.js";
 import Creationend from "./views/Creationend.js";
 import Creationimage from "./views/Creationimage.js";
@@ -117,7 +117,7 @@ Vue.use(router);
 new Vue({
   el: "#app",
   components: {
-    Chat,
+    castoro,
   },
   provide: {
     logged: false
@@ -175,7 +175,7 @@ new Vue({
       componentToRerender: 0,
       logged: false,
       chat_active: false,
-      adminName: ""
+      admin_name: ""
     };
   },
   mounted() {
