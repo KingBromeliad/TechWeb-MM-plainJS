@@ -79,8 +79,9 @@ const Login = Vue.component("Login", {
         </div>
         </div >
     `,
+    
     methods: {
-        login: (e) => {
+        login: function (e) {
             e.preventDefault();
             let username = document.getElementById("username").value;
             let password = document.getElementById("password").value;
@@ -95,8 +96,7 @@ const Login = Vue.component("Login", {
                     })
                     .then((response) => {
                         console.log(response.data);
-                        console.log(this);
-                        $router.push("/profile");
+                        this.$emit("login");
                     })
                     .catch((errors) => {
                         alert("Username o password sbagliati!");

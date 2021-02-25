@@ -142,7 +142,7 @@ app.post("/api/register", (req, res) => {
 
 
 app.get("/openStory", (req, res) => {
-  let story = JSON.parse(fs.readFileSync(__dirname + '/' + 'storiaDinosauri.json'));
+  let story = JSON.parse(fs.readFileSync(__dirname + '/' + storiacorrente));
   res.send(story);
 });
 

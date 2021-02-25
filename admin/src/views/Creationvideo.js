@@ -84,7 +84,7 @@ const Creationvideo = Vue.component("Creationvideo", {
                 });
         },
         indietro() {
-            this.$router.push("Creationstory");
+            this.$emit("go_to_creationstory");
         },
         salvamodifiche() {
             this.items.source.push(this.linkToVid);
@@ -97,7 +97,7 @@ const Creationvideo = Vue.component("Creationvideo", {
         },
     },
     mounted: function () {
-        if (Vue.prototype.$SavedFile == null) this.$router.push("Creation");
+        if (Vue.prototype.$SavedFile == null) this.$emit("go_to_creation");
         this.items = JSON.parse(
             JSON.stringify(Vue.prototype.$SavedFile.game[Vue.prototype.$numeroquiz])
         );

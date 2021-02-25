@@ -217,7 +217,7 @@ const Creationquiz = Vue.component("Creationquiz", {
             this.items.domande[i].argomento.push(" ");
         },
         indietro() {
-            this.$router.push("Creationstory");
+            this.$emit("go_to_creationstory");
         },
         salvamodifiche() {
             Vue.prototype.$SavedFile.game[this.$numeroquiz].modificato = true;
@@ -236,7 +236,7 @@ const Creationquiz = Vue.component("Creationquiz", {
         },
     },
     mounted: function () {
-        if (Vue.prototype.$SavedFile == null) this.$router.push("Creation");
+        if (Vue.prototype.$SavedFile == null) this.$emit("go_to_creation");
         console.log("siamo nella quiz creation");
         console.log(this.$numeroquiz);
         this.items = JSON.parse(

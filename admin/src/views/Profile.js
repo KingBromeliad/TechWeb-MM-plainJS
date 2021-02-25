@@ -87,7 +87,6 @@ const Profile = Vue.component("Profile", {
                     this.$set(this, "user", "");
                     console.log(response.data);
                     this.$emit("logout");
-                    router.push("/");
                 })
                 .catch((errors) => {
                     console.log(errors);

@@ -86,11 +86,11 @@ const CreationQrGame = Vue.component("CreationQrGame", {
             this.stringsToSubmit.splice(data, 1);
         },
         indietro() {
-            this.$router.push("Creationstory");
+            this.$emit("go_to_creationstory");
         },
     },
     mounted: function () {
-        if (Vue.prototype.$SavedFile == null) this.$router.push("Creation");
+        if (Vue.prototype.$SavedFile == null) this.$emit.push("go_to_creation");
         console.log("siamo nella start cration");
         console.log(this.$numeroquiz);
         console.log(Vue.prototype.$SavedFile.game[Vue.prototype.$numeroquiz]);

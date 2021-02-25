@@ -65,7 +65,7 @@ const Creationtris = Vue.component("Creationtris", {
                 });
         },
         indietro() {
-            this.$router.push("Creationstory");
+            this.$emit("go_to_creationstory");
         },
         salvamodifiche() {
             Vue.prototype.$SavedFile.game[this.$numeroquiz] = JSON.parse(
@@ -74,7 +74,7 @@ const Creationtris = Vue.component("Creationtris", {
         },
     },
     mounted: function () {
-        if (Vue.prototype.$SavedFile == null) this.$router.push("Creation");
+        if (Vue.prototype.$SavedFile == null) this.$emit("go_to_creation");
         console.log("siamo nella tris cration");
         this.items = JSON.parse(
             JSON.stringify(Vue.prototype.$SavedFile.game[Vue.prototype.$numeroquiz])

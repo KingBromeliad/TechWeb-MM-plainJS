@@ -345,6 +345,7 @@ const Creation = Vue.component("Creation", {
             Vue.prototype.$numerostoria = this.lista.length;
             this.lista.push(a);
             this.invialistastoria();
+            let self = this;
             axios
                 .get("http://localhost:8000/prendiStoria", {
                     params: {
@@ -357,7 +358,7 @@ const Creation = Vue.component("Creation", {
                     this.jsoncreato.namestory = this.storyname;
                     this.jsoncreato.accessibile = this.accessibilita;
                     Vue.prototype.$SavedFile = this.jsoncreato;
-                    this.$router.push("Creationstory");
+                    self.$emit("go_to_creationstory");
                     let filejson = this.jsoncreato;
                     axios
                         .post("http://localhost:8000/writeStory", {
@@ -376,6 +377,7 @@ const Creation = Vue.component("Creation", {
                 });
         },
         vaialcreator(data) {
+            let self = this;
             axios
                 .get("http://localhost:8000/prendiStoria", {
                     params: {
@@ -384,7 +386,7 @@ const Creation = Vue.component("Creation", {
                 })
                 .then((response) => {
                     Vue.prototype.$SavedFile = response.data;
-                    this.$router.push("Creationstory");
+                    self.$emit("go_to_creationstory");
                     console.log(response);
                 })
                 .catch((errors) => {

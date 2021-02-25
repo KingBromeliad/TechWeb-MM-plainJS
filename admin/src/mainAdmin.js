@@ -148,7 +148,24 @@ new Vue({
     },
     logout: function () {
       this.logged = false;
+      this.$router.push('/');
     },
+    login: function () {
+      this.logged = true;
+      this.$router.push('/profile');
+    },
+    register: function () {
+      this.$router.push('/login');
+    },
+    go_to_creationstory: function () {
+      this.$router.push('/creationstory');
+    },
+    go_to_creation: function () {
+      this.$router.push('/creation');
+    },
+    go_to_modifica: function (data) {
+      this.$router.push(data);
+    }
   },
   data: function () {
     return {

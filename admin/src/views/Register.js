@@ -65,13 +65,14 @@ const Register = Vue.component("Register", {
         </div>
     `,
     methods: {
-        signUp: (e) => {
+        signUp: function (e) {
             e.preventDefault();
             var name = document.getElementById("name").value;
             var username = document.getElementById("username").value;
             var password = document.getElementById("pass").value;
             var confirmPass = document.getElementById("confirm_password").value;
             //console.log(name + username + password);
+            const self = this;
             if (password == confirmPass) {
                 axios
                     .post("http://localhost:8000/api/register", {
@@ -81,8 +82,7 @@ const Register = Vue.component("Register", {
                     })
                     .then(function (response) {
                         console.log(response);
-                        console.log("hello");
-                        router.push("/login");
+                        self.$emit("register");
                     })
                     .catch(function (error) {
                         console.log(error);

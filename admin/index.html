@@ -149,7 +149,9 @@
         </div>
       </div>
     </nav>
-    <router-view v-bind:logged="this.logged" />
+    <router-view v-bind:logged="this.logged" @logout="logout()" @login="login()" @register="register()"
+      @go_to_creationstory="go_to_creationstory()" @go_to_creation="go_to_creation()" 
+      @go_to_modifica="go_to_modifica"/>
   </div>
   <!-- built files will be auto injected -->
   <script type="module" src="./src/mainAdmin.js"></script>

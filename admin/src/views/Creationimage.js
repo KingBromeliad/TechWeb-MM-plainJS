@@ -88,7 +88,7 @@ const Creationimage = Vue.component("Creationimage", {
                 });
         },
         indietro() {
-            this.$router.push("Creationstory");
+            this.$emit("go_to_creationstory");
         },
         cambia() {
             this.items.image_or_text = !this.items.image_or_text;

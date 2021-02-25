@@ -385,7 +385,8 @@ const Creationstory = Vue.component("Creationstory", {
             Vue.prototype.$SavedFile = JSON.parse(JSON.stringify(this.newjson));
             Vue.prototype.$numeroquiz = data;
             console.log(Vue.prototype.$numeroquiz);
-            this.$router.push(this.newjson.game[data].src);
+            this.$emit("go_to_modifica", this.newjson.game[data].src);
+            //this.$router.push(this.newjson.game[data].src);
         },
 
         salvastoria() {
@@ -421,7 +422,7 @@ const Creationstory = Vue.component("Creationstory", {
         escistoria() {
             console.log("storia salvata");
             Vue.prototype.$SavedFile = JSON.parse(JSON.stringify(this.$SavedFile2));
-            this.$router.push("Creation");
+            this.$emit("go_to_creation");
         },
 
         eliminajson(data) {
@@ -454,7 +455,7 @@ const Creationstory = Vue.component("Creationstory", {
     },
 
     created: function () {
-        if (Vue.prototype.$SavedFile == null) this.$router.push("Creation");
+        if (Vue.prototype.$SavedFile == null) this.$emit("go_to_creation");
         console.log("siamo nella View creation");
         console.log(Vue.prototype.$SavedFile);
         this.newjson = JSON.parse(JSON.stringify(Vue.prototype.$SavedFile));
