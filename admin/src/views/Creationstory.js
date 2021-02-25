@@ -23,25 +23,25 @@ const Creationstory = Vue.component("Creationstory", {
                     <div class="mb-3">
                     <img class="w-auto mx-auto rounded-full" src="item.url" alt="" />
                     </div>
-                    <h2 class="text-xl font-medium text-gray-700">
+                    <h2 class="text-xl font-medium text-gray-700 max-w-max text-center">
                     {{ index }} {{ item.name }}
                     </h2>
                     <h4
                     v-if="item.modificato != true"
-                    class="text-xl font-medium text-gray-700"
+                    class="text-xl font-medium text-gray-700 max-w-max text-center"
                     >
                     da modificare
                     </h4>
                     <button
                     v-if="item.modificabile!=false"
                     @click="modifica(index)"
-                    class="px-16 py-2 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
+                    class="px-2 py-2 text-sm max-w-max text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
                     >
                     Modifica
                     </button>
                     <button
                     @click="elimina(index)"
-                    class="px-16 py-2 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
+                    class="px-2 py-2 text-sm max-w-max text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
                     >
                     Elimina
                     </button>
@@ -55,7 +55,7 @@ const Creationstory = Vue.component("Creationstory", {
                 >
                     <button
                     @click="modifica(newjson.game.length-1)"
-                    class="px-16 py-2 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
+                    class="px-2 py-2 text-sm max-w-max text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
                     >
                     Modifica fine
                     </button>
@@ -74,7 +74,7 @@ const Creationstory = Vue.component("Creationstory", {
                     />
                     </div>
                     <button
-                    class="px-16 py-2 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
+                    class="px-2 py-2 max-w-max text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
                     >
                     Aggiungi gioco
                     </button>

@@ -187,7 +187,7 @@ const Chat = Vue.component("Chat", {
     `,
     components: {
         Message,
-        userMessage,
+        UserMessage,
     },
     props: {
         slideOver: Boolean,

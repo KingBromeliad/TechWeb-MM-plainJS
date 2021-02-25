@@ -174,7 +174,7 @@ new Vue({
       dropdown_state: false,
       componentToRerender: 0,
       logged: false,
-      chatActive: false,
+      chat_active: false,
       adminName: ""
     };
   },

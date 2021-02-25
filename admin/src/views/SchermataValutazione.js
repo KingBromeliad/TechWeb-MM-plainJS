@@ -99,13 +99,6 @@ const SchermataValutazione = Vue.component("SchermataValutazione", {
                 </div>
             </div>
 
-            <modal name="playerNeedsHelp">
-                <div class="text-xl text-center text-black font-bold py-5">
-                Il giocatore: <br />
-                {{ giocatoreDaAiutare }} <br />
-                ha bisogno di aiuto!
-                </div>
-            </modal>
             <div class="flex justify-center">
                 <button
                 @click="svuotaArrGiocatori()"
